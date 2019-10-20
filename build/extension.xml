@@ -1,0 +1,23 @@
+<extension xmlns="http://ns.adobe.com/air/extension/32.0">
+  <id>com.github.airext.FloatingKeyboard</id>
+  <versionNumber>1.0.0</versionNumber>
+  <platforms>
+    <platform name="iPhone-ARM">
+      <applicationDeployment>
+        <nativeLibrary>libANXFloatingKeyboard.a</nativeLibrary>
+        <initializer>ANXFloatingKeyboardInitializer</initializer>
+        <finalizer>ANXFloatingKeyboardFinalizer</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="iPhone-x86">
+      <applicationDeployment>
+        <nativeLibrary>libANXFloatingKeyboardSimulator.a</nativeLibrary>
+        <initializer>ANXFloatingKeyboardInitializer</initializer>
+        <finalizer>ANXFloatingKeyboardFinalizer</finalizer>
+      </applicationDeployment>
+    </platform>
+    <platform name="default">
+      <applicationDeployment/>
+    </platform>
+  </platforms>
+</extension>

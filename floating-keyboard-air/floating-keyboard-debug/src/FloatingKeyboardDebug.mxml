@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<f:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
+               xmlns:f="library://ns.feathersui.com/mxml"
+               theme="feathers.themes.MetalWorksMobileTheme" showStats="true">
+
+
+    <fx:Script>
+        <![CDATA[
+        import com.github.airext.FloatingKeyboard;
+
+        private function log(...args): void {
+            outputText.text += args + "\n";
+            outputText.verticalScrollPosition = outputText.maxVerticalScrollPosition;
+            trace(args);
+        }
+
+        private function isSupportedTapped(): void {
+            log(FloatingKeyboard.isSupported);
+        }
+
+        private function extensionVersionTapped(): void {
+            log(FloatingKeyboard.extensionVersion);
+        }
+
+        private function openKeyboard(): void {
+            log("TODO");
+        }
+
+        private function hideKeyboard(): void {
+            log("TODO");
+        }
+        ]]>
+    </fx:Script>
+
+    <f:layout>
+        <f:VerticalLayout />
+    </f:layout>
+
+    <f:ScrollContainer>
+        <f:layoutData>
+            <f:VerticalLayoutData percentHeight="100" percentWidth="100" />
+        </f:layoutData>
+        <f:layout><f:VerticalLayout horizontalAlign="justify" gap="10" /></f:layout>
+        <f:Button label="Is Supported" triggered="isSupportedTapped()" />
+        <f:Button label="Extensions Version" triggered="extensionVersionTapped()" />
+        <f:Button label="Open Keyboard" triggered="openKeyboard()" />
+        <f:Button label="Hide Keyboard" triggered="hideKeyboard()" />
+    </f:ScrollContainer>
+
+    <f:ScrollText id="outputText" height="100">
+        <f:layoutData>
+            <f:VerticalLayoutData percentWidth="100" />
+        </f:layoutData>
+    </f:ScrollText>
+
+</f:Application>

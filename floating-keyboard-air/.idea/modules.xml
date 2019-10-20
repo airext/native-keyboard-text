@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/floating-keyboard/floating-keyboard.iml" filepath="$PROJECT_DIR$/floating-keyboard/floating-keyboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/floating-keyboard-debug/floating-keyboard-debug.iml" filepath="$PROJECT_DIR$/floating-keyboard-debug/floating-keyboard-debug.iml" />
+    </modules>
+  </component>
+</project>
