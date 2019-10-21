@@ -10,6 +10,7 @@
 #import "FlashRuntimeExtensions.h"
 #import "ANXFloatingKeyboardConversionRoutines.h"
 #import "ANXFloatingKeyboard.h"
+#import "ANXFloatingKeyboardParams.h"
 
 @implementation ANXFloatingKeyboardFacade
 
@@ -26,11 +27,19 @@ FREObject ANXFloatingKeyboardIsSupported(FREContext context, void* functionData,
 
 FREObject ANXFloatingKeyboardShowKeyboard(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
     NSLog(@"ANXFloatingKeyboardShowKeyboard");
+    if (argc < 1) {
+        return NULL;
+    }
+
+    ANXFloatingKeyboardParams* params = [[ANXFloatingKeyboardParams alloc] initWithFREObject:argv[0]];
+    [ANXFloatingKeyboard.sharedInstance showKeyboard:params];
+
     return NULL;
 }
 
 FREObject ANXFloatingKeyboardHideKeyboard(FREContext context, void* functionData, uint32_t argc, FREObject argv[]) {
     NSLog(@"ANXFloatingKeyboardHideKeyboard");
+    [ANXFloatingKeyboard.sharedInstance hideKeyboard:nil];
     return NULL;
 }
 

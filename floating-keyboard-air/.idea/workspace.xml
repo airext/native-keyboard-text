@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="510aa090-1e46-47ea-9e2e-f37dc3233a52" name="Default Changelist" comment="" />
+    <list default="true" id="510aa090-1e46-47ea-9e2e-f37dc3233a52" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard/FloatingKeyboardParams.as" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardParams.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardParams.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.ane" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.ane" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.swc" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.swc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/floating-keyboard-debug.iml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/floating-keyboard-debug.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/src/FloatingKeyboardDebug.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/FloatingKeyboardDebug.mxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/FloatingKeyboard.as" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/FloatingKeyboard.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/FloatingKeyboard.as" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/FloatingKeyboard.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard.xcodeproj/project.pbxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardConversionRoutines.h" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardConversionRoutines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardConversionRoutines.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardConversionRoutines.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardFacade.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardFacade.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXTextField.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXTextField.m" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,18 +33,24 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1SSiT7CFKr9LKs1slfFt92kCog2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="flex.preferred.ios.device.id" value="4c5dd885ff0d7444e1d33c202fe2c6b8cb79ad26" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/floating-keyboard/src/main" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/floating-keyboard-demo/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15295815" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -34,9 +58,11 @@
       <recent name="com.github" />
     </key>
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
+      <recent name="com.github.airext.keyboard" />
       <recent name="com.github.airext" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext" />
       <recent name="$PROJECT_DIR$/floating-keyboard-demo/src" />
       <recent name="$PROJECT_DIR$/floating-keyboard/src/default" />
     </key>
@@ -135,11 +161,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571563402428</updated>
-      <workItem from="1571563406513" duration="6311000" />
+      <workItem from="1571563406513" duration="7416000" />
+      <workItem from="1571633370661" duration="12926000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

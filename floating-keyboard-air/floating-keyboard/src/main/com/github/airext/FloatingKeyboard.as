@@ -3,6 +3,7 @@
  */
 package com.github.airext {
 import com.github.airext.core.floating_keyboard;
+import com.github.airext.keyboard.FloatingKeyboardParams;
 
 import flash.external.ExtensionContext;
 import flash.filesystem.File;
@@ -116,12 +117,12 @@ public class FloatingKeyboard {
     //
     //--------------------------------------------------------------------------
 
-    public function showKeyboard(): void {
-
+    public function showKeyboard(params: FloatingKeyboardParams): void {
+        context.call("showKeyboard", params);
     }
 
     public function hideKeyboard(): void {
-
+        context.call("hideKeyboard");
     }
 
 }

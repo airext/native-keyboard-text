@@ -3,6 +3,7 @@
  */
 package com.github.airext {
 import com.github.airext.core.floating_keyboard;
+import com.github.airext.keyboard.FloatingKeyboardParams;
 
 import flash.system.Capabilities;
 
@@ -63,7 +64,7 @@ public class FloatingKeyboard {
     //
     //--------------------------------------------------------------------------
 
-    public function showKeyboard(): void {
+    public function showKeyboard(params: FloatingKeyboardParams): void {
         trace("FloatingKeyboard extension is not supported on " + Capabilities.os);
     }
 

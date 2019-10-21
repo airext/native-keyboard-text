@@ -7,6 +7,10 @@
     <fx:Script>
         <![CDATA[
         import com.github.airext.FloatingKeyboard;
+        import com.github.airext.keyboard.FloatingKeyboardParams;
+
+        [Bindable]
+        private var params: FloatingKeyboardParams = new FloatingKeyboardParams();
 
         private function log(...args): void {
             outputText.text += args + "\n";
@@ -23,11 +27,11 @@
         }
 
         private function openKeyboard(): void {
-            log("TODO");
+            FloatingKeyboard.shared.showKeyboard(params);
         }
 
         private function hideKeyboard(): void {
-            log("TODO");
+            FloatingKeyboard.shared.hideKeyboard();
         }
         ]]>
     </fx:Script>
@@ -43,6 +47,9 @@
         <f:layout><f:VerticalLayout horizontalAlign="justify" gap="10" /></f:layout>
         <f:Button label="Is Supported" triggered="isSupportedTapped()" />
         <f:Button label="Extensions Version" triggered="extensionVersionTapped()" />
+        <f:TextInput prompt="Initial Text" text="{params.text}" change="params.text = TextInput(event.target).text" />
+        <f:TextInput prompt="Max Characters Count" text="{params.maxCharactersCount}" restrict="0-9" change="params.maxCharactersCount = parseInt(TextInput(event.target).text)" />
+        <f:Check label="Secure Text Input" isSelected="{params.isSecureTextEntry}" change="params.isSecureTextEntry = Check(event.target).isSelected;" />
         <f:Button label="Open Keyboard" triggered="openKeyboard()" />
         <f:Button label="Hide Keyboard" triggered="hideKeyboard()" />
     </f:ScrollContainer>
