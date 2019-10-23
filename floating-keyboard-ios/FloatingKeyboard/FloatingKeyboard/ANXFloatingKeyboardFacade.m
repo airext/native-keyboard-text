@@ -68,10 +68,15 @@ void ANXFloatingKeyboardContextInitializer(void* extData, const uint8_t* ctxType
     func[2].function = &ANXFloatingKeyboardHideKeyboard;
 
     *functionsToSet = func;
+
+    // Store reference to the context
+
+    ANXFloatingKeyboard.sharedInstance.context = ctx;
 }
 
 void ANXFloatingKeyboardContextFinalizer(FREContext ctx) {
     NSLog(@"ANXFloatingKeyboardContextFinalizer");
+    ANXFloatingKeyboard.sharedInstance.context = nil;
 }
 
 #pragma mark Initializer/Finalizer

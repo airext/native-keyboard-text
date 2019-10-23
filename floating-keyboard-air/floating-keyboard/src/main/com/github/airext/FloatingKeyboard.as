@@ -4,7 +4,11 @@
 package com.github.airext {
 import com.github.airext.core.floating_keyboard;
 import com.github.airext.keyboard.FloatingKeyboardParams;
+import com.github.airext.keyboard.event.FloatingKeyboardHideEvent;
+import com.github.airext.keyboard.event.FloatingKeyboardShowEvent;
 
+import flash.events.EventDispatcher;
+import flash.events.StatusEvent;
 import flash.external.ExtensionContext;
 import flash.filesystem.File;
 import flash.filesystem.FileMode;
@@ -12,11 +16,14 @@ import flash.filesystem.FileStream;
 
 use namespace floating_keyboard;
 
-public class FloatingKeyboard {
+[Event(name="floatingKeyboardShow", type="com.github.airext.keyboard.event.FloatingKeyboardShowEvent")]
+[Event(name="floatingKeyboardHide", type="com.github.airext.keyboard.event.FloatingKeyboardHideEvent")]
+
+public class FloatingKeyboard extends EventDispatcher {
 
     //--------------------------------------------------------------------------
     //
-    //  Class methods
+    //  Class constants
     //
     //--------------------------------------------------------------------------
 
@@ -100,6 +107,20 @@ public class FloatingKeyboard {
         return _extensionVersion;
     }
 
+    //-------------------------------------
+    //  Utils
+    //-------------------------------------
+
+    private static function parseParams(raw: String): Object {
+        var params: Object = null;
+        try {
+            params = JSON.parse(raw);
+        } catch (e: Error) {
+            params = raw;
+        }
+        return params;
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Constructor
@@ -109,6 +130,7 @@ public class FloatingKeyboard {
     public function FloatingKeyboard() {
         super();
         instance = this;
+        context.addEventListener(StatusEvent.STATUS, statusHandler);
     }
 
     //--------------------------------------------------------------------------
@@ -125,5 +147,23 @@ public class FloatingKeyboard {
         context.call("hideKeyboard");
     }
 
+    //--------------------------------------------------------------------------
+    //
+    //  Event handlers
+    //
+    //--------------------------------------------------------------------------
+
+    private function statusHandler(event: StatusEvent):void {
+        trace("FloatingKeyboard.status: ", event.code, event.level);
+        switch (event.code) {
+            case "FloatingKeyboard.Keyboard.Hide":
+                var params: Object = parseParams(event.level);
+                dispatchEvent(new FloatingKeyboardHideEvent(params.oldText, params.newText));
+                break;
+            case "FloatingKeyboard.Keyboard.Show":
+                dispatchEvent(new FloatingKeyboardShowEvent());
+                break;
+        }
+    }
 }
 }

@@ -8,9 +8,14 @@
         <![CDATA[
         import com.github.airext.FloatingKeyboard;
         import com.github.airext.keyboard.FloatingKeyboardParams;
+        import com.github.airext.keyboard.event.FloatingKeyboardHideEvent;
+        import com.github.airext.keyboard.event.FloatingKeyboardShowEvent;
 
         [Bindable]
         private var params: FloatingKeyboardParams = new FloatingKeyboardParams();
+
+        [Bindable]
+        private var shouldAutoHideKeyboard: Boolean = false;
 
         private function log(...args): void {
             outputText.text += args + "\n";
@@ -28,16 +33,35 @@
 
         private function openKeyboard(): void {
             FloatingKeyboard.shared.showKeyboard(params);
+            if (shouldAutoHideKeyboard) {
+                var handle: uint = setTimeout(function(): void {
+                    clearTimeout(handle);
+                    FloatingKeyboard.shared.hideKeyboard();
+                }, 10 * 1000);
+            }
         }
 
         private function hideKeyboard(): void {
             FloatingKeyboard.shared.hideKeyboard();
         }
+
         ]]>
     </fx:Script>
 
+    <f:creationComplete>
+        <![CDATA[
+        FloatingKeyboard.shared.addEventListener(FloatingKeyboardShowEvent.SHOW, function(event: FloatingKeyboardShowEvent): void {
+            log("Keyboard did show");
+        });
+
+        FloatingKeyboard.shared.addEventListener(FloatingKeyboardHideEvent.HIDE, function (event: FloatingKeyboardHideEvent): void {
+            log("Keyboard did hide with oldText:" + event.oldText + ", newText: " + event.newText);
+        });
+        ]]>
+    </f:creationComplete>
+
     <f:layout>
-        <f:VerticalLayout />
+        <f:VerticalLayout paddingTop="44" paddingBottom="34" />
     </f:layout>
 
     <f:ScrollContainer>
@@ -50,6 +74,7 @@
         <f:TextInput prompt="Initial Text" text="{params.text}" change="params.text = TextInput(event.target).text" />
         <f:TextInput prompt="Max Characters Count" text="{params.maxCharactersCount}" restrict="0-9" change="params.maxCharactersCount = parseInt(TextInput(event.target).text)" />
         <f:Check label="Secure Text Input" isSelected="{params.isSecureTextEntry}" change="params.isSecureTextEntry = Check(event.target).isSelected;" />
+        <f:Check label="Automatically Hide Keyboard after 10 seconds" isSelected="{shouldAutoHideKeyboard}" change="shouldAutoHideKeyboard = Check(event.target).isSelected" />
         <f:Button label="Open Keyboard" triggered="openKeyboard()" />
         <f:Button label="Hide Keyboard" triggered="hideKeyboard()" />
     </f:ScrollContainer>

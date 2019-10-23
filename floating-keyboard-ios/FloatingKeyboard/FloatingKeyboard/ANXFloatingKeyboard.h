@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ANXFloatingKeyboardParams.h"
+#import "FlashRuntimeExtensions.h"
 
 @interface ANXFloatingKeyboard : NSObject {
     ANXFloatingKeyboardParams* _params;
+    NSString* _latestInputString;
 }
 
 #pragma mark - Shared Instance
@@ -23,10 +25,10 @@
 @property (weak, nonatomic) UITapGestureRecognizer* tapGestureRecognizer;
 
 @property (nonatomic, readonly) UIColor* textFieldBackgroundColor;
-
 @property (nonatomic, readonly) UIColor* textFieldWrapperBackgroundColor;
-
 @property (nonatomic, readonly) CGFloat textFieldPadding;
+
+@property FREContext context;
 
 #pragma mark - API
 
@@ -41,8 +43,9 @@
 @interface ANXFloatingKeyboard (UIKeyboard)
 
 - (void)keyboardWillShowNotification:(NSNotification *)notification;
-
+- (void)keyboardDidShowNotification:(NSNotification *)notification;
 - (void)keyboardWillHideNotification:(NSNotification *)notification;
+- (void)keyboardDidHideNotification:(NSNotification *)notification;
 
 @end
 
@@ -60,5 +63,17 @@
 #pragma mark - UITextFieldDelegate
 
 @interface ANXFloatingKeyboard (UITextFieldDelegate) <UITextFieldDelegate>
+
+@end
+
+#pragma mark - FREDispatcher
+
+@interface ANXFloatingKeyboard (FREDispatcher)
+
+- (void)dispatch:(NSString*) code withLevel:(NSString*)level;
+
+- (void)dispatchError:(NSString*)code;
+
+- (void)dispatchStatus:(NSString*)code;
 
 @end

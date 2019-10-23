@@ -5,11 +5,15 @@ package com.github.airext {
 import com.github.airext.core.floating_keyboard;
 import com.github.airext.keyboard.FloatingKeyboardParams;
 
+import flash.events.EventDispatcher;
 import flash.system.Capabilities;
 
 use namespace floating_keyboard;
 
-public class FloatingKeyboard {
+[Event(name="floatingKeyboardShow", type="com.github.airext.keyboard.event.FloatingKeyboardShowEvent")]
+[Event(name="floatingKeyboardHide", type="com.github.airext.keyboard.event.FloatingKeyboardHideEvent")]
+
+public class FloatingKeyboard extends EventDispatcher {
 
     //--------------------------------------------------------------------------
     //
