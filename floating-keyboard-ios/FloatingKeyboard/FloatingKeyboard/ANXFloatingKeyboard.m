@@ -30,21 +30,6 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     return _sharedInstance;
 }
 
-- (id)init {
-    self = [super init];
-    if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowNotification:) name:UIKeyboardDidShowNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideNotification:) name:UIKeyboardDidHideNotification object:nil];
-    }
-    return self;
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 #pragma mark Synthesized Properties
 
 @synthesize context;
@@ -56,15 +41,18 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
     _params = params;
 
+    [self subscribeToKeyboardNotifications];
+
     self.textField = [self createTextField];
-    [self.textField.superview setHidden:YES];
 
     self.tapGestureRecognizer = [self createTapGestureRecognizer];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.textField.superview setHidden:NO];
-        [self.textField becomeFirstResponder];
-        [self.textField setText:self->_params.text];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.textField becomeFirstResponder];
+            self.textField.text = self->_params.text;
+        });
     });
 }
 
@@ -77,7 +65,21 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     }
 
     [view endEditing:YES];
-    [view removeGestureRecognizer:self.tapGestureRecognizer];
+}
+
+- (void)subscribeToKeyboardNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowNotification:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideNotification:) name:UIKeyboardDidHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChangeFrameNotification:) name:UIKeyboardDidChangeFrameNotification object:nil];
+}
+
+- (void)unsubscribeFromKeyboardNotificationAndDispose {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.textField.superview removeFromSuperview];
+    [self.tapGestureRecognizer.view removeGestureRecognizer:self.tapGestureRecognizer];
 }
 
 @end
@@ -106,13 +108,11 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
         CGRect frame = self.textField.superview.frame;
         frame.origin.y = keyboardFrame.origin.y - CGRectGetHeight(frame);
         self.textField.superview.frame = frame;
-    } completion:^(BOOL finished) {
-    }];
+    } completion:nil];
 }
 
 - (void)keyboardDidShowNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardDidShowNotification]");
-    [self dispatch:@"FloatingKeyboard.Keyboard.Show" withLevel:@""];
 }
 
 - (void)keyboardWillHideNotification:(NSNotification *)notification {
@@ -132,15 +132,28 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
         CGRect frame = self.textField.superview.frame;
         frame.origin.y = CGRectGetMaxY(view.bounds);
         self.textField.superview.frame = frame;
-    } completion:^(BOOL finished) {
-        [self.textField.superview removeFromSuperview];
-        [view removeGestureRecognizer:self.tapGestureRecognizer];
-    }];
+    } completion:nil];
 }
 
 - (void)keyboardDidHideNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardDidHideNotification]");
-    [self dispatch:@"FloatingKeyboard.Keyboard.Hide" withLevel:[NSString stringWithFormat:@"{\"oldText\":\"%@\", \"newText\":\"%@\"}", _params.text ? _params.text : @"", _latestInputString]];
+}
+
+- (void)keyboardWillChangeFrameNotification:(NSNotification *)notification {
+    NSLog(@"[ANXFloatingKeyboard keyboardWillChangeFrameNotification]");
+    NSLog(@"%@", notification.userInfo);
+}
+
+- (void)keyboardDidChangeFrameNotification:(NSNotification *)notification {
+    NSLog(@"[ANXFloatingKeyboard keyboardDidChangeFrameNotification]");
+    NSLog(@"%@", notification.userInfo);
+
+    NSDictionary* userInfo = notification.userInfo;
+
+    CGRect frame = [[userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    if (frame.origin.y >= UIScreen.mainScreen.bounds.size.height || frame.size.height < 44.0) {
+        [self unsubscribeFromKeyboardNotificationAndDispose];
+    }
 }
 
 @end
@@ -181,12 +194,11 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
     UITextField* inputTextField = [[ANXTextField alloc] init];
     inputTextField.delegate = self;
-
-    [inputTextField setBorderStyle:UITextBorderStyleRoundedRect];
-    [inputTextField setBackgroundColor:self.textFieldBackgroundColor];
-    [inputTextField setClearButtonMode:UITextFieldViewModeAlways];
-    [inputTextField setReturnKeyType:UIReturnKeyDone];
-    [inputTextField setSecureTextEntry:_params.isSecureTextEntry];
+    inputTextField.borderStyle = UITextBorderStyleRoundedRect;
+    inputTextField.backgroundColor = self.textFieldBackgroundColor;
+    inputTextField.clearButtonMode = UITextFieldViewModeAlways;
+    inputTextField.returnKeyType = UIReturnKeyDone;
+    inputTextField.secureTextEntry = _params.isSecureTextEntry;
 
     [inputTextField sizeToFit];
 
@@ -197,8 +209,14 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
                              CGRectGetWidth(view.bounds), wrapperHeight);
 
     UIView* wrapper = [[UIView alloc] initWithFrame:rect];
-    [wrapper setBackgroundColor:self.textFieldWrapperBackgroundColor];
+    wrapper.hidden = YES;
+    wrapper.backgroundColor = self.textFieldWrapperBackgroundColor;
     [view addSubview:wrapper];
+
+    UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0.0, -1.0, wrapper.bounds.size.width, 0.5)];
+    line.backgroundColor = UIColor.systemGrayColor;
+    line.alpha = 0.8;
+    [wrapper addSubview:line];
 
     inputTextField.frame = CGRectMake(PADDING, PADDING, CGRectGetWidth(wrapper.bounds) - PADDING * 2, textFieldHeight);
     [wrapper addSubview:inputTextField];
@@ -233,7 +251,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     if (_params.maxCharactersCount == 0) {
         return YES;
     }
-    
+
     NSUInteger oldLength = [textField.text length];
     NSUInteger replacementLength = [string length];
     NSUInteger rangeLength = range.length;
@@ -245,8 +263,15 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     return newLength <= _params.maxCharactersCount || returnKey;
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    NSLog(@"[ANXFloatingKeyboard textFieldShouldBeginEditing]");
+    [self dispatch:@"FloatingKeyboard.Keyboard.Show" withLevel:@""];
+    return YES;
+}
+
 - (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason {
-    _latestInputString = textField.text;
+    NSLog(@"[ANXFloatingKeyboard textFieldDidEndEditing]");
+    [self dispatch:@"FloatingKeyboard.Keyboard.Hide" withLevel:[NSString stringWithFormat:@"{\"oldText\":\"%@\", \"newText\":\"%@\"}", _params.text ? _params.text : @"", textField.text]];
 }
 
 @end

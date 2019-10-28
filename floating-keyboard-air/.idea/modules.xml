@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/floating-keyboard/floating-keyboard.iml" filepath="$PROJECT_DIR$/floating-keyboard/floating-keyboard.iml" />
       <module fileurl="file://$PROJECT_DIR$/floating-keyboard-debug/floating-keyboard-debug.iml" filepath="$PROJECT_DIR$/floating-keyboard-debug/floating-keyboard-debug.iml" />
+      <module fileurl="file://$PROJECT_DIR$/floating-keyboard-debug-simple/floating-keyboard-debug-simple.iml" filepath="$PROJECT_DIR$/floating-keyboard-debug-simple/floating-keyboard-debug-simple.iml" />
     </modules>
   </component>
 </project>

@@ -46,6 +46,8 @@
 - (void)keyboardDidShowNotification:(NSNotification *)notification;
 - (void)keyboardWillHideNotification:(NSNotification *)notification;
 - (void)keyboardDidHideNotification:(NSNotification *)notification;
+- (void)keyboardWillChangeFrameNotification:(NSNotification *)notification;
+- (void)keyboardDidChangeFrameNotification:(NSNotification *)notification;
 
 @end
 

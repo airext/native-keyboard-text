@@ -1,21 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AirPackageProjectParameters">
+    <option name="iosPackageType" value="ad hoc distribution" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="510aa090-1e46-47ea-9e2e-f37dc3233a52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/Default-375w-667h@2x~iphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/Default-414w-736h@3x~iphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/Default-568h@2x~iphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/Default-812h@3x~iphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/Default@2x~iphone.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/Default~iphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/FloatingKeyboardDebugSimple-app.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.ane" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.swc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/floating-keyboard-debug-simple.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/Default-375w-667h@2x~iphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/Default-414w-736h@3x~iphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/Default-568h@2x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/Default-568h@2x~iphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/Default-812h@3x~iphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/Default@2x~iphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/Default~iphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/FloatingKeyboardDebugSimple.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/extension.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/extension.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/FloatingKeyboardDebug-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/FloatingKeyboardDebug-app.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.ane" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.ane" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.swc" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.swc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/floating-keyboard-debug.iml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/floating-keyboard-debug.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/src/FloatingKeyboardDebug.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/FloatingKeyboardDebug.mxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/FloatingKeyboard.as" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/FloatingKeyboard.as" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/FloatingKeyboard.as" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/FloatingKeyboard.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard/build/extension.xml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard/build/extension.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.m" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +54,7 @@
     <property name="flex.preferred.ios.device.id" value="4c5dd885ff0d7444e1d33c202fe2c6b8cb79ad26" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/keyboard/event" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/floating-keyboard-debug-simple/src/Default~iphone.png" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -63,11 +73,11 @@
       <recent name="com.github.airext" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/floating-keyboard-debug-simple/src" />
       <recent name="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/keyboard/event" />
       <recent name="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard" />
       <recent name="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard/event" />
       <recent name="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/keyboard" />
-      <recent name="$PROJECT_DIR$/floating-keyboard-debug/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -82,7 +92,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flash App.floating-keyboard-debug:ios">
     <configuration name="&lt;template&gt;" type="JUnit" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -104,6 +114,45 @@
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="floating-keyboard-debug-simple:ios" type="FlashRunConfigurationType">
+      <option name="BCName" value="floating-keyboard-debug-simple" />
+      <option name="IOSSimulatorDevice" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="clearAppDataOnEachLaunch" value="true" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="iOSDevice" />
+      <option name="moduleName" value="floating-keyboard-debug-simple" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -156,6 +205,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Flash App.floating-keyboard-debug-simple:ios" />
+      <item itemvalue="Flash App.floating-keyboard-debug:ios" />
+    </list>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -167,7 +220,12 @@
       <workItem from="1571563406513" duration="7416000" />
       <workItem from="1571633370661" duration="13862000" />
       <workItem from="1571731560743" duration="852000" />
-      <workItem from="1571824199582" duration="11554000" />
+      <workItem from="1571824199582" duration="12369000" />
+      <workItem from="1571924575737" duration="5424000" />
+      <workItem from="1572022360432" duration="23000" />
+      <workItem from="1572112744881" duration="6488000" />
+      <workItem from="1572195257710" duration="131000" />
+      <workItem from="1572254938030" duration="6000" />
     </task>
     <servers />
   </component>
