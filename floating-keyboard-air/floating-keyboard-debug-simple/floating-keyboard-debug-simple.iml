@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="floating-keyboard-debug-simple">
     <configurations>
-      <configuration name="floating-keyboard-debug-simple" target-platform="Mobile" pure-as="true" main-class="FloatingKeyboardDebugSimple" output-file="Main.swf" output-folder="$MODULE_DIR$/../out/production/floating-keyboard-debug-simple">
+      <configuration name="floating-keyboard-debug-simple" target-platform="Mobile" pure-as="true" main-class="FloatingKeyboardDebugSimple" output-file="Main.swf" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="32.0">
           <entries>
             <entry library-id="052438f6-f9ed-4d92-a6ff-6401df929518">
