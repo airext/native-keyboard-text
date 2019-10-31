@@ -17,7 +17,9 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
-@implementation ANXFloatingKeyboard
+@implementation ANXFloatingKeyboard {
+    BOOL isKeyboardShown;
+}
 
 #pragma mark - Shared Instance
 
@@ -47,8 +49,8 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
     self.tapGestureRecognizer = [self createTapGestureRecognizer];
 
-    [self.textField.superview setHidden:NO];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.08 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.textField.superview setHidden:NO];
         [self.textField becomeFirstResponder];
         self.textField.text = self->_params.text;
     });
@@ -117,11 +119,6 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     NSLog(@"[ANXFloatingKeyboard keyboardWillHideNotification]");
     NSLog(@"%@", notification.userInfo);
 
-    UIView* view = [self findTopmostView];
-    if (view == nil) {
-        return;
-    }
-
     NSDictionary* userInfo = notification.userInfo;
 
     BOOL isKeyboardDisappear = [self doesKeyboardDisappear:userInfo];
@@ -130,13 +127,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     CGFloat animationDuration           = [[userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
 
     [UIView animateWithDuration:animationDuration delay:0.0f options:(UIViewAnimationOptions)animationCurve animations:^{
-        CGRect frame = self.textField.superview.frame;
-        if (isKeyboardDisappear) {
-            frame.origin.y = CGRectGetMaxY(view.bounds);
-        } else {
-            frame.origin.y = CGRectGetMaxY(view.bounds) - frame.size.height;
-        }
-        self.textField.superview.frame = frame;
+        [self moveTextFieldAtBottomAndHide:isKeyboardDisappear];
     } completion:nil];
 }
 
@@ -147,14 +138,24 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 - (void)keyboardWillChangeFrameNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardWillChangeFrameNotification]");
     NSLog(@"%@", notification.userInfo);
+
+    isKeyboardShown = isKeyboardShown || [self doesKeyboardDisappear:notification.userInfo] == NO;
 }
 
 - (void)keyboardDidChangeFrameNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardDidChangeFrameNotification]");
     NSLog(@"%@", notification.userInfo);
 
-    if ([self doesKeyboardDisappear:notification.userInfo]) {
-        [self unsubscribeFromKeyboardNotificationAndDispose];
+    isKeyboardShown = [self doesKeyboardDisappear:notification.userInfo] == NO;
+
+    if (!isKeyboardShown) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.08 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (self->isKeyboardShown) {
+                [self moveTextFieldAtBottomAndHide:NO];
+            } else {
+                [self unsubscribeFromKeyboardNotificationAndDispose];
+            }
+        });
     }
 }
 
@@ -188,6 +189,8 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     return NO;
 }
 
+#pragma mark Styles
+
 - (UIColor*)textFieldBackgroundColor {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
         return UIColor.secondarySystemBackgroundColor;
@@ -203,6 +206,8 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
         return UIColor.whiteColor;
     }
 }
+
+#pragma mark TextField
 
 - (UITextField*)createTextField {
     UIView* view = [self findTopmostView];
@@ -241,6 +246,23 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
     return inputTextField;
 }
+
+- (void)moveTextFieldAtBottomAndHide:(BOOL)hide {
+    UIView* view = [self findTopmostView];
+    if (view == nil) {
+        return;
+    }
+
+    CGRect frame = self.textField.superview.frame;
+    if (hide) {
+        frame.origin.y = CGRectGetMaxY(view.bounds);
+    } else {
+        frame.origin.y = CGRectGetMaxY(view.bounds) - CGRectGetHeight(frame);
+    }
+    self.textField.superview.frame = frame;
+}
+
+#pragma mark TapGestureRecognizer
 
 - (UITapGestureRecognizer*)createTapGestureRecognizer {
     UIView* view = [self findTopmostView];

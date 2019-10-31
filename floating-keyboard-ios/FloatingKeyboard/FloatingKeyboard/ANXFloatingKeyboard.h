@@ -60,6 +60,8 @@
 - (BOOL)doesKeyboardDisappear:(NSDictionary*)userInfo;
 
 - (UITextField*)createTextField;
+- (void)moveTextFieldAtBottomAndHide:(BOOL)hide;
+
 - (UITapGestureRecognizer*)createTapGestureRecognizer;
 
 @end
