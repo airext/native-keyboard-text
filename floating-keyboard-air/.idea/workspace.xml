@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="510aa090-1e46-47ea-9e2e-f37dc3233a52" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../build/extension.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/extension.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug-simple/FloatingKeyboardDebugSimple-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/FloatingKeyboardDebugSimple-app.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/FloatingKeyboardDebug-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/FloatingKeyboardDebug-app.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,15 +33,19 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="floating-keyboard" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="flex.preferred.ios.device.id" value="4c5dd885ff0d7444e1d33c202fe2c6b8cb79ad26" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/floating-keyboard-debug-simple" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../build/build.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15295815" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -207,7 +215,7 @@
       <workItem from="1572195257710" duration="131000" />
       <workItem from="1572254938030" duration="1206000" />
       <workItem from="1572270647169" duration="295000" />
-      <workItem from="1572542703810" duration="646000" />
+      <workItem from="1572542703810" duration="708000" />
     </task>
     <servers />
   </component>
