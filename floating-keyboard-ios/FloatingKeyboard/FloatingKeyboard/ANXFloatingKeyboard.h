@@ -57,6 +57,8 @@
 
 - (UIView*)findTopmostView;
 
+- (BOOL)doesKeyboardDisappear:(NSDictionary*)userInfo;
+
 - (UITextField*)createTextField;
 - (UITapGestureRecognizer*)createTapGestureRecognizer;
 

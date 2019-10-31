@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="510aa090-1e46-47ea-9e2e-f37dc3233a52" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug-simple/FloatingKeyboardDebugSimple-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/FloatingKeyboardDebugSimple-app.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/FloatingKeyboardDebug-app.xml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/FloatingKeyboardDebug-app.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -207,7 +205,9 @@
       <workItem from="1572022360432" duration="23000" />
       <workItem from="1572112744881" duration="6488000" />
       <workItem from="1572195257710" duration="131000" />
-      <workItem from="1572254938030" duration="1174000" />
+      <workItem from="1572254938030" duration="1206000" />
+      <workItem from="1572270647169" duration="295000" />
+      <workItem from="1572542703810" duration="646000" />
     </task>
     <servers />
   </component>

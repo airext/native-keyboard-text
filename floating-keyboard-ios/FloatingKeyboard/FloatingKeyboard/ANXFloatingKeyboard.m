@@ -47,12 +47,10 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
     self.tapGestureRecognizer = [self createTapGestureRecognizer];
 
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.textField.superview setHidden:NO];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.textField becomeFirstResponder];
-            self.textField.text = self->_params.text;
-        });
+    [self.textField.superview setHidden:NO];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.textField becomeFirstResponder];
+        self.textField.text = self->_params.text;
     });
 }
 
@@ -117,6 +115,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 - (void)keyboardWillHideNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardWillHideNotification]");
+    NSLog(@"%@", notification.userInfo);
 
     UIView* view = [self findTopmostView];
     if (view == nil) {
@@ -125,12 +124,18 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
     NSDictionary* userInfo = notification.userInfo;
 
+    BOOL isKeyboardDisappear = [self doesKeyboardDisappear:userInfo];
+
     UIViewAnimationCurve animationCurve = [[userInfo valueForKey:UIKeyboardAnimationCurveUserInfoKey] intValue];
     CGFloat animationDuration           = [[userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
 
     [UIView animateWithDuration:animationDuration delay:0.0f options:(UIViewAnimationOptions)animationCurve animations:^{
         CGRect frame = self.textField.superview.frame;
-        frame.origin.y = CGRectGetMaxY(view.bounds);
+        if (isKeyboardDisappear) {
+            frame.origin.y = CGRectGetMaxY(view.bounds);
+        } else {
+            frame.origin.y = CGRectGetMaxY(view.bounds) - frame.size.height;
+        }
         self.textField.superview.frame = frame;
     } completion:nil];
 }
@@ -148,10 +153,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     NSLog(@"[ANXFloatingKeyboard keyboardDidChangeFrameNotification]");
     NSLog(@"%@", notification.userInfo);
 
-    NSDictionary* userInfo = notification.userInfo;
-
-    CGRect frame = [[userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    if (frame.origin.y >= UIScreen.mainScreen.bounds.size.height || frame.size.height < 44.0) {
+    if ([self doesKeyboardDisappear:notification.userInfo]) {
         [self unsubscribeFromKeyboardNotificationAndDispose];
     }
 }
@@ -168,6 +170,22 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
         return nil;
     }
     return rootViewController.view;
+}
+
+- (BOOL)doesKeyboardDisappear:(NSDictionary*)userInfo {
+    CGRect frame = [[userInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+
+    // if Keyboard's end frame is out of screen it disappears
+    if (frame.origin.y >= UIScreen.mainScreen.bounds.size.height) {
+        return YES;
+    }
+
+    // if Keyboard's height is too small it disappears in Floating mode
+    if (frame.size.height < 44.0) {
+        return YES;
+    }
+
+    return NO;
 }
 
 - (UIColor*)textFieldBackgroundColor {
