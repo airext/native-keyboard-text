@@ -43,7 +43,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
     _params = params;
 
-    [self subscribeToKeyboardNotifications];
+    [self subscribeToNotifications];
 
     self.textField = [self createTextField];
 
@@ -67,17 +67,19 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     [view endEditing:YES];
 }
 
-- (void)subscribeToKeyboardNotifications {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowNotification:) name:UIKeyboardDidShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideNotification:) name:UIKeyboardDidHideNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChangeFrameNotification:) name:UIKeyboardDidChangeFrameNotification object:nil];
+- (void)subscribeToNotifications {
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(keyboardDidShowNotification:) name:UIKeyboardDidShowNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(keyboardDidHideNotification:) name:UIKeyboardDidHideNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(keyboardWillChangeFrameNotification:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(keyboardDidChangeFrameNotification:) name:UIKeyboardDidChangeFrameNotification object:nil];
+
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(deviceOrientationDidChangeNotification:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
-- (void)unsubscribeFromKeyboardNotificationAndDispose {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+- (void)unsubscribeFromNotificationAndDispose {
+    [NSNotificationCenter.defaultCenter removeObserver:self];
     [self.textField.superview removeFromSuperview];
     [self.tapGestureRecognizer.view removeGestureRecognizer:self.tapGestureRecognizer];
 }
@@ -153,10 +155,23 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
             if (self->isKeyboardShown) {
                 [self moveTextFieldAtBottomAndHide:NO];
             } else {
-                [self unsubscribeFromKeyboardNotificationAndDispose];
+                [self unsubscribeFromNotificationAndDispose];
             }
         });
     }
+}
+
+@end
+
+#pragma mark - UIDevice
+
+@implementation ANXFloatingKeyboard (UIDevice)
+
+- (void)deviceOrientationDidChangeNotification:(NSNotification*)notification {
+    NSLog(@"[ANXFloatingKeyboard deviceOrientationDidChangeNotification]");
+    NSLog(@"%@", notification.userInfo);
+
+    [self adjustTextFieldFrame];
 }
 
 @end
@@ -239,9 +254,14 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
     UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0.0, -1.0, wrapper.bounds.size.width, 0.5)];
     line.backgroundColor = UIColor.systemGrayColor;
     line.alpha = 0.8;
+    line.tag = 1198;
     [wrapper addSubview:line];
 
-    inputTextField.frame = CGRectMake(PADDING, PADDING, CGRectGetWidth(wrapper.bounds) - PADDING * 2, textFieldHeight);
+    UIEdgeInsets safeArea = view.safeAreaInsets;
+    CGFloat left = MAX(safeArea.left, PADDING);
+    CGFloat right = MAX(safeArea.right, PADDING);
+
+    inputTextField.frame = CGRectMake(left, PADDING, wrapper.bounds.size.width - (left + right), textFieldHeight);
     [wrapper addSubview:inputTextField];
 
     return inputTextField;
@@ -253,6 +273,10 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
         return;
     }
 
+    if (!self.textField) {
+        return;
+    }
+
     CGRect frame = self.textField.superview.frame;
     if (hide) {
         frame.origin.y = CGRectGetMaxY(view.bounds);
@@ -260,6 +284,44 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
         frame.origin.y = CGRectGetMaxY(view.bounds) - CGRectGetHeight(frame);
     }
     self.textField.superview.frame = frame;
+}
+
+- (void)adjustTextFieldFrame {
+    UIView* view = [self findTopmostView];
+    if (view == nil) {
+        return;
+    }
+
+    if (!self.textField) {
+        return;
+    }
+
+    // wrapper
+
+    UIView* wrapper = self.textField.superview;
+
+    CGRect wrapperFrame = wrapper.frame;
+    wrapperFrame.size.width = CGRectGetWidth(view.bounds);
+    wrapper.frame = wrapperFrame;
+
+    // line
+
+    UIView* line = [wrapper viewWithTag:1198];
+
+    CGRect lineFrame = line.frame;
+    lineFrame.size.width = wrapper.bounds.size.width;
+    line.frame = lineFrame;
+
+    // input
+
+    UIEdgeInsets safeArea = view.safeAreaInsets;
+    CGFloat left = MAX(safeArea.left, PADDING);
+    CGFloat right = MAX(safeArea.right, PADDING);
+
+    CGRect inputFrame = self.textField.frame;
+    inputFrame.origin.x = left;
+    inputFrame.size.width = wrapper.bounds.size.width - (left + right);
+    self.textField.frame = inputFrame;
 }
 
 #pragma mark TapGestureRecognizer

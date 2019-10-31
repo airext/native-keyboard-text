@@ -51,6 +51,14 @@
 
 @end
 
+#pragma mark - UIDevice
+
+@interface ANXFloatingKeyboard (UIDevice)
+
+- (void)deviceOrientationDidChangeNotification:(NSNotification*)notification;
+
+@end
+
 #pragma mark - Utils
 
 @interface ANXFloatingKeyboard (Utils)
@@ -61,6 +69,7 @@
 
 - (UITextField*)createTextField;
 - (void)moveTextFieldAtBottomAndHide:(BOOL)hide;
+- (void)adjustTextFieldFrame;
 
 - (UITapGestureRecognizer*)createTapGestureRecognizer;
 
