@@ -369,10 +369,25 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
         return nil;
     }
 
-    UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
+    UITapGestureRecognizer* recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     [view addGestureRecognizer:recognizer];
 
     return recognizer;
+}
+
+- (void)handleTapGesture:(UITapGestureRecognizer*)recognizer {
+    UIView* view = [self findTopmostView];
+    if (view == nil) {
+        return;
+    }
+
+    CGPoint location = [recognizer locationInView:view];
+
+    if (self.textField && CGRectContainsPoint(self.textField.superview.frame, location)) {
+        return;
+    }
+
+    [self hideKeyboard:nil];
 }
 
 @end
