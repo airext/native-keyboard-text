@@ -18,7 +18,10 @@
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
 @implementation ANXFloatingKeyboard {
-    BOOL isKeyboardShown;
+    BOOL isKeyboardPresented;  // indicates if Keyboard is statically presented
+    BOOL isKeyboardInDockMode; // indicates if Keyboard is presented and docked
+    BOOL isKeyboardDismissing; // indicates if Keyboard is in transition to close state
+    BOOL isKeyboardAppearing;  // indicates if Keyboard is in transition to open state
 }
 
 #pragma mark - Shared Instance
@@ -92,6 +95,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 - (void)keyboardWillShowNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardWillShowNotification]");
+    isKeyboardInDockMode = YES;
 
     UIView* view = [self findTopmostView];
     if (view == nil) {
@@ -135,29 +139,58 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 - (void)keyboardDidHideNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardDidHideNotification]");
+    isKeyboardInDockMode = NO;
 }
+
+#pragma mark ChangeFrame
 
 - (void)keyboardWillChangeFrameNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardWillChangeFrameNotification]");
     NSLog(@"%@", notification.userInfo);
 
-    isKeyboardShown = isKeyboardShown || [self doesKeyboardDisappear:notification.userInfo] == NO;
+    NSDictionary* userInfo = notification.userInfo;
+
+    BOOL willKeyboardBeHidden = [self doesKeyboardDisappear:userInfo];
+
+    isKeyboardAppearing = !isKeyboardPresented && !willKeyboardBeHidden;
+    isKeyboardDismissing = isKeyboardPresented && willKeyboardBeHidden;
+
+    if (isKeyboardDismissing && !isKeyboardInDockMode) {
+        UIViewAnimationCurve animationCurve = [[userInfo valueForKey:UIKeyboardAnimationCurveUserInfoKey] intValue];
+        CGFloat animationDuration           = [[userInfo valueForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+
+        [UIView animateWithDuration:animationDuration delay:0.0f options:(UIViewAnimationOptions)animationCurve animations:^{
+            [self moveTextFieldAtBottomAndHide:YES];
+        } completion:nil];
+    }
 }
 
 - (void)keyboardDidChangeFrameNotification:(NSNotification *)notification {
     NSLog(@"[ANXFloatingKeyboard keyboardDidChangeFrameNotification]");
     NSLog(@"%@", notification.userInfo);
 
-    isKeyboardShown = [self doesKeyboardDisappear:notification.userInfo] == NO;
+    NSDictionary* userInfo = notification.userInfo;
 
-    if (!isKeyboardShown) {
+    BOOL isKeyboardHidden = [self doesKeyboardDisappear:userInfo];
+
+    isKeyboardPresented = !isKeyboardHidden;
+
+    isKeyboardAppearing = NO;
+    isKeyboardDismissing = NO;
+
+    if (!isKeyboardPresented) {
+        // Keyboard seems to be closed, but for transition to Floating state we need to wait some time to check
+        // if Keyboard is not shown nor in appearing transition
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.08 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (self->isKeyboardShown) {
+            if (self->isKeyboardPresented || self->isKeyboardAppearing) {
                 [self moveTextFieldAtBottomAndHide:NO];
             } else {
                 [self unsubscribeFromNotificationAndDispose];
             }
         });
+    } else if (!isKeyboardInDockMode) {
+        // restore TextField visibility that could be fully hidden in `keyboardWillChangeFrameNotification` method
+        [self moveTextFieldAtBottomAndHide:NO];
     }
 }
 
