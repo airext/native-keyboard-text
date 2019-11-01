@@ -3,6 +3,7 @@ package {
 import com.github.airext.FloatingKeyboard;
 import com.github.airext.keyboard.FloatingKeyboardParams;
 import com.github.airext.keyboard.event.FloatingKeyboardHideEvent;
+import com.github.airext.keyboard.event.FloatingKeyboardInputEvent;
 import com.github.airext.keyboard.event.FloatingKeyboardShowEvent;
 
 import flash.display.Sprite;
@@ -57,6 +58,9 @@ public class FloatingKeyboardDebugSimple extends Sprite {
         });
         FloatingKeyboard.shared.addEventListener(FloatingKeyboardShowEvent.SHOW, function(event: FloatingKeyboardShowEvent): void {
             log("Keyboard did show");
+        });
+        FloatingKeyboard.shared.addEventListener(FloatingKeyboardInputEvent.INPUT, function(event: FloatingKeyboardInputEvent): void {
+            log("Keyboard input: " + event.text);
         });
 
         // buttons

@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="510aa090-1e46-47ea-9e2e-f37dc3233a52" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../build/extension.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/extension.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.ane" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.ane" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.swc" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.swc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/FloatingKeyboardDebugSimple.as" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/src/FloatingKeyboardDebugSimple.as" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.ane" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.ane" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.swc" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.swc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/src/FloatingKeyboardDebug.mxml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/src/FloatingKeyboardDebug.mxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/FloatingKeyboard.as" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/FloatingKeyboard.as" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,7 +46,7 @@
     <property name="flex.preferred.ios.device.id" value="4c5dd885ff0d7444e1d33c202fe2c6b8cb79ad26" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../build/build.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard/event" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -52,15 +60,15 @@
       <recent name="com.github" />
     </key>
     <key name="CreateActionScriptClassDialog.DESTINATION_PACKAGE_RECENT_KEY">
-      <recent name="com.github.airext.keyboard" />
       <recent name="com.github.airext.keyboard.event" />
+      <recent name="com.github.airext.keyboard" />
       <recent name="com.github.airext" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard/event" />
       <recent name="$PROJECT_DIR$/floating-keyboard-debug-simple/src" />
       <recent name="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/keyboard/event" />
       <recent name="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard" />
-      <recent name="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard/event" />
       <recent name="$PROJECT_DIR$/floating-keyboard/src/default/com/github/airext/keyboard" />
     </key>
   </component>
@@ -211,7 +219,7 @@
       <workItem from="1572195257710" duration="131000" />
       <workItem from="1572254938030" duration="1206000" />
       <workItem from="1572270647169" duration="295000" />
-      <workItem from="1572542703810" duration="1558000" />
+      <workItem from="1572542703810" duration="3414000" />
     </task>
     <servers />
   </component>

@@ -383,6 +383,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self hideKeyboard:nil];
+    [self dispatch:@"FloatingKeyboard.Keyboard.Input" withLevel:textField.text];
     return NO;
 }
 

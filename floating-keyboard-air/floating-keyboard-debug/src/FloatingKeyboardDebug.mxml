@@ -10,6 +10,7 @@
         import com.github.airext.keyboard.FloatingKeyboardParams;
         import com.github.airext.keyboard.event.FloatingKeyboardHideEvent;
         import com.github.airext.keyboard.event.FloatingKeyboardShowEvent;
+        import com.github.airext.keyboard.event.FloatingKeyboardInputEvent;
 
         [Bindable]
         private var params: FloatingKeyboardParams = new FloatingKeyboardParams();
@@ -56,6 +57,10 @@
 
         FloatingKeyboard.shared.addEventListener(FloatingKeyboardHideEvent.HIDE, function (event: FloatingKeyboardHideEvent): void {
             log("Keyboard did hide with oldText:" + event.oldText + ", newText: " + event.newText);
+        });
+
+        FloatingKeyboard.shared.addEventListener(FloatingKeyboardInputEvent.INPUT, function(event: FloatingKeyboardInputEvent): void {
+            log("Keyboard input: " + event.text);
         });
         ]]>
     </f:creationComplete>

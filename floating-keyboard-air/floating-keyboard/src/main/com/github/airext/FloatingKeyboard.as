@@ -5,6 +5,7 @@ package com.github.airext {
 import com.github.airext.core.floating_keyboard;
 import com.github.airext.keyboard.FloatingKeyboardParams;
 import com.github.airext.keyboard.event.FloatingKeyboardHideEvent;
+import com.github.airext.keyboard.event.FloatingKeyboardInputEvent;
 import com.github.airext.keyboard.event.FloatingKeyboardShowEvent;
 
 import flash.events.EventDispatcher;
@@ -18,6 +19,7 @@ use namespace floating_keyboard;
 
 [Event(name="floatingKeyboardShow", type="com.github.airext.keyboard.event.FloatingKeyboardShowEvent")]
 [Event(name="floatingKeyboardHide", type="com.github.airext.keyboard.event.FloatingKeyboardHideEvent")]
+[Event(name="floatingKeyboardInput", type="com.github.airext.keyboard.event.FloatingKeyboardInputEvent")]
 
 public class FloatingKeyboard extends EventDispatcher {
 
@@ -162,6 +164,10 @@ public class FloatingKeyboard extends EventDispatcher {
                 break;
             case "FloatingKeyboard.Keyboard.Show":
                 dispatchEvent(new FloatingKeyboardShowEvent());
+                break;
+            case "FloatingKeyboard.Keyboard.Input":
+                var text: String = event.level;
+                dispatchEvent(new FloatingKeyboardInputEvent(text));
                 break;
         }
     }
