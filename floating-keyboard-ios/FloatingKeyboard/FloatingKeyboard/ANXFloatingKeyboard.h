@@ -24,10 +24,6 @@
 @property (weak, nonatomic) UITextField* textField;
 @property (weak, nonatomic) UITapGestureRecognizer* tapGestureRecognizer;
 
-@property (nonatomic, readonly) UIColor* textFieldBackgroundColor;
-@property (nonatomic, readonly) UIColor* textFieldWrapperBackgroundColor;
-@property (nonatomic, readonly) CGFloat textFieldPadding;
-
 @property FREContext context;
 
 #pragma mark - API
@@ -66,6 +62,9 @@
 - (UIView*)findTopmostView;
 
 - (BOOL)doesKeyboardDisappear:(NSDictionary*)userInfo;
+
+@property (nonatomic, readonly) UIColor* textFieldBackgroundColor;
+@property (nonatomic, readonly) UIColor* textFieldWrapperBackgroundColor;
 
 - (UITextField*)createTextField;
 - (void)moveTextFieldAtBottomAndHide:(BOOL)hide;

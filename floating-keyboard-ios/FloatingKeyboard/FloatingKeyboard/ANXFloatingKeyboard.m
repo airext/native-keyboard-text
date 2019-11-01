@@ -44,6 +44,10 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 - (void)showKeyboard:(ANXFloatingKeyboardParams*)params {
     NSLog(@"[ANXFloatingKeyboard showKeyboard]");
 
+    if (self.textField) {
+        return;
+    }
+
     _params = params;
 
     [self subscribeToNotifications];
