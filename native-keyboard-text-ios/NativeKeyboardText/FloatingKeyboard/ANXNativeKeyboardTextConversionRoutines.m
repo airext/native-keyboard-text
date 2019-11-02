@@ -120,4 +120,13 @@
     }
 }
 
++ (NSInteger)readNSIntegerFrom:(FREObject)object field:(NSString*)field withRawValueField:(NSString*)rawValueField withDefaultValue:(NSInteger)defaultValue {
+    FREObject propertyObject;
+    if (FREGetObjectProperty(object, (const uint8_t *)[field UTF8String], &propertyObject, NULL) == FRE_OK) {
+        return [self readNSIntegerFrom:propertyObject field:rawValueField withDefaultValue:defaultValue];
+    } else {
+        return defaultValue;
+    }
+}
+
 @end

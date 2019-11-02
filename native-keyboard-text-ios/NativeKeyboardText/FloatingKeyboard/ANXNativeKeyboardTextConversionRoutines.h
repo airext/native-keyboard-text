@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString*)readNSStringFrom:(FREObject)object field:(NSString*)field withDefaultValue:(NSString* _Nullable)defaultValue;
 + (BOOL)readBoolFrom:(FREObject)object field:(NSString*)field withDefaultValue:(BOOL)defaultValue;
 + (NSInteger)readNSIntegerFrom:(FREObject)object field:(NSString*)field withDefaultValue:(NSInteger)defaultValue;
++ (NSInteger)readNSIntegerFrom:(FREObject)object field:(NSString*)field withRawValueField:(NSString*)rawValueField withDefaultValue:(NSInteger)defaultValue;
 
 @end
 
