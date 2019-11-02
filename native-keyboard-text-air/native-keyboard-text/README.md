@@ -38,7 +38,7 @@ Set iOS minimum version to 12.0 in iPhone InfoAdditions:
 
 ### Usage
 
-#### Simplest Example
+A very simple example:
 
 ```actionscript3
 // listen to Keyboard's Input event
@@ -51,29 +51,29 @@ var params: NativeKeyboardTextParams = new NativeKeyboardTextParams();
 NativeKeyboardText.shared.showKeyboard(params);
 ```
 
-#### API
+### API
 
-##### Shared Instance
+#### Shared Instance
 
 Use `NativeKeyboardText.shared` to obtain an instance of NativeKeyboardText class, it is designed to be a singleton.
 
-##### Utils
+#### Utils
 
 * `NativeKeyboardText.isSupported` indicates if NativeKeyboardText is supported on the current platform;
 * `NativeKeyboardText.extensionVersion` returns extension version number;
 
-##### Show/Hide 
+#### Show/Hide 
 
 * `NativeKeyboardText.shared.showKeyboard(NativeKeyboardTextParams)` shows native keyboard parametrized based on `NativeKeyboardTextParams` instance.
 * `NativeKeyboardText.shared.showKeyboard.hideKeyboard()` hides native keyboard if presented from this ANE.
 
-##### Events
+#### Events
 
 * `NativeKeyboardTextShowEvent.SHOW` dispatches when native keyboard is opened.
 * `NativeKeyboardTextHideEvent.HIDE` dispatches after native keyboard hides, provides `oldText: String` and `newText: String` properties that could be used to handle user input.
 * `NativeKeyboardTextInputEvent.INPUT` dispatches when user taps on a return button, contains `text` property with current user input.
 
-##### Params
+#### Params
 
 The appearance of native keyboard could be changed with `NativeKeyboardTextParams` object:
 * `NativeKeyboardTextParams.text` specifies initial text to display in a text field above native keyboard;
@@ -85,7 +85,7 @@ The appearance of native keyboard could be changed with `NativeKeyboardTextParam
 * `NativeKeyboardTextParams.spellChecking` spell checking type from `SpellChecking` enum.
 * `NativeKeyboardTextParams.maxCharactersCount` indicates how mach characters user able to enter.
 
-##### NativeKeyboardType
+#### NativeKeyboardType
 
 This enum maps to [UIKeyboardType](https://developer.apple.com/documentation/uikit/uikeyboardtype), next values are supported:
 * `NativeKeyboardType.Default`
@@ -101,7 +101,7 @@ This enum maps to [UIKeyboardType](https://developer.apple.com/documentation/uik
 * `NativeKeyboardType.WebSearch`
 * `NativeKeyboardType.ASCIICapableNumberPad`
 
-##### ReturnKeyType
+#### ReturnKeyType
 
 Maps to [UIReturnKeyType](https://developer.apple.com/documentation/uikit/uireturnkeytype), next values are supported:
 * `ReturnKeyType.Default`
@@ -117,7 +117,7 @@ Maps to [UIReturnKeyType](https://developer.apple.com/documentation/uikit/uiretu
 * `ReturnKeyType.EmergencyCall`
 * `ReturnKeyType.Continue`
 
-##### AutoCapitalization
+#### AutoCapitalization
 
 Maps to [UITextAutocapitalizationType](https://developer.apple.com/documentation/uikit/uitextautocapitalizationtype), next values are supported:
 * `AutoCapitalization.None`
@@ -125,14 +125,14 @@ Maps to [UITextAutocapitalizationType](https://developer.apple.com/documentation
 * `AutoCapitalization.Sentences`
 * `AutoCapitalization.AllCharacters`
 
-##### AutoCorrection
+#### AutoCorrection
 
 Maps to [UITextAutocorrectionType](https://developer.apple.com/documentation/uikit/uitextautocorrectiontype), supports next values:
 * `AutoCorrection.Default`
 * `AutoCorrection.No`
 * `AutoCorrection.Yes`
 
-##### SpellChecking
+#### SpellChecking
 
 Maps to [UITextSpellCheckingType](https://developer.apple.com/documentation/uikit/uitextspellcheckingtype), supports next values:
 * `SpellChecking.Default`
