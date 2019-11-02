@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="Flex" version="4">
-  <component name="FlexBuildConfigurationManager" active="floating-keyboard-debug-simple">
+  <component name="FlexBuildConfigurationManager" active="native-keyboard-text-debug-simple">
     <configurations>
-      <configuration name="floating-keyboard-debug-simple" target-platform="Mobile" pure-as="true" main-class="NativeKeyboardTextDebugSimple" output-file="Main.swf" output-folder="$MODULE_DIR$/../floating-keyboard-debug-simple/bin">
+      <configuration name="native-keyboard-text-debug-simple" target-platform="Mobile" pure-as="true" main-class="NativeKeyboardTextDebugSimple" output-file="Main.swf" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="32.0">
           <entries>
             <entry library-id="052438f6-f9ed-4d92-a6ff-6401df929518">
@@ -14,15 +14,15 @@
         <compiler-options />
         <packaging-air-desktop />
         <packaging-android package-file-name="Main" />
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/../floating-keyboard-debug-simple/NativeKeyboardTextDebugSimple-app.xml" package-file-name="Main">
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/NativeKeyboardTextDebugSimple-app.xml" package-file-name="Main">
           <files-to-package>
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/../floating-keyboard-debug-simple/src/Default-375w-667h@2x~iphone.png" path-in-package="Default-375w-667h@2x~iphone.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/../floating-keyboard-debug-simple/src/Default-414w-736h@3x~iphone.png" path-in-package="Default-414w-736h@3x~iphone.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/../floating-keyboard-debug-simple/src/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/../floating-keyboard-debug-simple/src/Default-568h@2x~iphone.png" path-in-package="Default-568h@2x~iphone.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/../floating-keyboard-debug-simple/src/Default-812h@3x~iphone.png" path-in-package="Default-812h@3x~iphone.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/../floating-keyboard-debug-simple/src/Default@2x~iphone.png" path-in-package="Default@2x~iphone.png" />
-            <FilePathAndPathInPackage file-path="$MODULE_DIR$/../floating-keyboard-debug-simple/src/Default~iphone.png" path-in-package="Default~iphone.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-375w-667h@2x~iphone.png" path-in-package="Default-375w-667h@2x~iphone.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-414w-736h@3x~iphone.png" path-in-package="Default-414w-736h@3x~iphone.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-568h@2x.png" path-in-package="Default-568h@2x.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-568h@2x~iphone.png" path-in-package="Default-568h@2x~iphone.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-812h@3x~iphone.png" path-in-package="Default-812h@3x~iphone.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default@2x~iphone.png" path-in-package="Default@2x~iphone.png" />
+            <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default~iphone.png" path-in-package="Default~iphone.png" />
           </files-to-package>
           <AirSigningOptions keystore-path="$USER_HOME$/cert/rozd/max.rozdobudko.apple.dev.p12" provisioning-profile-path="$USER_HOME$/cert/rozd/whateverdev.mobileprovision" />
         </packaging-ios>

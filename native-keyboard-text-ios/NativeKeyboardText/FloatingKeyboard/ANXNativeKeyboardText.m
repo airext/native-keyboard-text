@@ -274,6 +274,11 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
     inputTextField.clearButtonMode = UITextFieldViewModeAlways;
     inputTextField.returnKeyType = UIReturnKeyDone;
     inputTextField.secureTextEntry = _params.isSecureTextEntry;
+    inputTextField.keyboardType = _params.keyboardType;
+    inputTextField.returnKeyType = _params.returnKeyType;
+    inputTextField.autocapitalizationType = _params.autoCapitalizationType;
+    inputTextField.autocorrectionType = _params.autoCorrectionType;
+    inputTextField.spellCheckingType = _params.spellCheckingType;
 
     [inputTextField sizeToFit];
 

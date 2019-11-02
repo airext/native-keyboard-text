@@ -8,9 +8,12 @@
         <![CDATA[
         import com.github.airext.NativeKeyboardText;
         import com.github.airext.keyboard.NativeKeyboardTextParams;
+        import com.github.airext.keyboard.enum.AutoCapitalization;
+        import com.github.airext.keyboard.enum.NativeKeyboardType;
+        import com.github.airext.keyboard.enum.ReturnKeyType;
         import com.github.airext.keyboard.event.NativeKeyboardTextHideEvent;
-        import com.github.airext.keyboard.event.NativeKeyboardTextShowEvent;
         import com.github.airext.keyboard.event.NativeKeyboardTextInputEvent;
+        import com.github.airext.keyboard.event.NativeKeyboardTextShowEvent;
 
         [Bindable]
         private var params: NativeKeyboardTextParams = new NativeKeyboardTextParams();
@@ -35,7 +38,7 @@
         private function openKeyboard(): void {
             NativeKeyboardText.shared.showKeyboard(params);
             if (shouldAutoHideKeyboard) {
-                var handle: uint = setTimeout(function(): void {
+                var handle: uint = setTimeout(function (): void {
                     clearTimeout(handle);
                     NativeKeyboardText.shared.hideKeyboard();
                 }, 10 * 1000);
@@ -45,7 +48,6 @@
         private function hideKeyboard(): void {
             NativeKeyboardText.shared.hideKeyboard();
         }
-
         ]]>
     </fx:Script>
 
@@ -82,6 +84,58 @@
         <f:Check label="Automatically Hide Keyboard after 10 seconds" isSelected="{shouldAutoHideKeyboard}" change="shouldAutoHideKeyboard = Check(event.target).isSelected" />
         <f:Button label="Open Keyboard" triggered="openKeyboard()" />
         <f:Button label="Hide Keyboard" triggered="hideKeyboard()" />
+        <f:PickerList selectedItem="{params.keyboardType}" labelField="name" change="params.keyboardType = PickerList(event.target).selectedItem as NativeKeyboardType;">
+            <f:dataProvider>
+                <f:ArrayCollection>
+                    {[
+                    NativeKeyboardType.Default,
+                    NativeKeyboardType.ASCIICapable,
+                    NativeKeyboardType.NumbersAndPunctuation,
+                    NativeKeyboardType.URL,
+                    NativeKeyboardType.NumberPad,
+                    NativeKeyboardType.PhonePad,
+                    NativeKeyboardType.NamePhonePad,
+                    NativeKeyboardType.EmailAddress,
+                    NativeKeyboardType.DecimalPad,
+                    NativeKeyboardType.Twitter,
+                    NativeKeyboardType.WebSearch,
+                    NativeKeyboardType.ASCIICapableNumberPad
+                    ]}
+                </f:ArrayCollection>
+            </f:dataProvider>
+        </f:PickerList>
+        <f:PickerList selectedItem="{params.returnKeyType}" labelField="name" change="params.returnKeyType = PickerList(event.target).selectedItem as ReturnKeyType;">
+            <f:dataProvider>
+                <f:ArrayCollection>
+                    {[
+                    ReturnKeyType.Default,
+                    ReturnKeyType.Go,
+                    ReturnKeyType.Google,
+                    ReturnKeyType.Join,
+                    ReturnKeyType.Next,
+                    ReturnKeyType.Route,
+                    ReturnKeyType.Search,
+                    ReturnKeyType.Send,
+                    ReturnKeyType.Yahoo,
+                    ReturnKeyType.Done,
+                    ReturnKeyType.EmergencyCall,
+                    ReturnKeyType.Continue
+                    ]}
+                </f:ArrayCollection>
+            </f:dataProvider>
+        </f:PickerList>
+        <f:PickerList selectedItem="{params.autoCapitalization}" labelField="name" change="params.autoCapitalization = PickerList(event.target).selectedItem as AutoCapitalization;">
+            <f:dataProvider>
+                <f:ArrayCollection>
+                    {[
+                    AutoCapitalization.None,
+                    AutoCapitalization.Words,
+                    AutoCapitalization.Sentences,
+                    AutoCapitalization.AllCharacters
+                    ]}
+                </f:ArrayCollection>
+            </f:dataProvider>
+        </f:PickerList>
     </f:ScrollContainer>
 
     <f:ScrollText id="outputText" height="100">
