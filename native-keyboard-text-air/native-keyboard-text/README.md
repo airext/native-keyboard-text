@@ -10,6 +10,17 @@ native-keyboard-text ![License MIT](http://img.shields.io/badge/license-MIT-ligh
 - [Sections](#sections)
   - [Setup](#setup)
   - [Usage](#usage)
+  - [API](#api)
+    - [Shared Instance](#shared-instance)
+    - [Utils](#utils)
+    - [Show/Hide](#showhide)
+    - [Events](#events)
+    - [Params](#params)
+    - [NativeKeyboardType](#nativekeyboardtype)
+    - [ReturnKeyType](#returnkeytype)
+    - [AutoCapitalization](#autocapitalization)
+    - [AutoCorrection](#autocorrection)
+    - [SpellChecking](#spellchecking)
   
 ## Sections
 
