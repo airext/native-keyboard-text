@@ -1,4 +1,4 @@
-floating-keyboard ![License MIT](http://img.shields.io/badge/license-MIT-lightgray.svg)
+native-keyboard-text ![License MIT](http://img.shields.io/badge/license-MIT-lightgray.svg)
 ==========
 
 ![iOS](https://img.shields.io/badge/iOS-11.0-blue)
