@@ -1,7 +1,7 @@
 native-keyboard-text ![License MIT](http://img.shields.io/badge/license-MIT-lightgray.svg)
 ==========
 
-![iOS](https://img.shields.io/badge/iOS-11.0-blue)
+![iOS](https://img.shields.io/badge/iOS-12.0-blue)
 
 [AIR Native Extension](http://www.adobe.com/devnet/air/native-extensions-for-air.html) for alternate way to input text on AIR.
 
@@ -23,14 +23,14 @@ native-keyboard-text ![License MIT](http://img.shields.io/badge/license-MIT-ligh
 </extensions>
 ```
 
-Set iOS minimum version to 11.0 in iPhone InfoAdditions:
+Set iOS minimum version to 12.0 in iPhone InfoAdditions:
 ```xml
 <iPhone>
     <!-- A list of plist key/value pairs to be added to the application Info.plist -->
     <InfoAdditions>
         <![CDATA[
         <key>MinimumOSVersion</key>
-        <string>11.0</string>
+        <string>12.0</string>
         ]]>
     </InfoAdditions>
 </iPhone>
