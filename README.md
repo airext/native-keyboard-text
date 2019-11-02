@@ -1,7 +1,7 @@
 floating-keyboard ![License MIT](http://img.shields.io/badge/license-MIT-lightgray.svg)
 ==========
 
-![iOS](https://img.shields.io/badge/iOS-10.0-blue)
+![iOS](https://img.shields.io/badge/iOS-11.0-blue)
 
 [AIR Native Extension](http://www.adobe.com/devnet/air/native-extensions-for-air.html) for alternate way to input text on AIR.
 
