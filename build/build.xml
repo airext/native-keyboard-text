@@ -5,7 +5,7 @@
     <!--                             Properties                              -->
     <!--=====================================================================-->
 
-    <property name="project.name" value="floating-keyboard" />
+    <property name="project.name" value="native-keyboard-text" />
     <property name="product.name" value="NativeKeyboardText" />
     <property name="extension.id" value="com.github.airext.NativeKeyboardText" />
 
