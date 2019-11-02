@@ -2,6 +2,11 @@ package {
 
 import com.github.airext.NativeKeyboardText;
 import com.github.airext.keyboard.NativeKeyboardTextParams;
+import com.github.airext.keyboard.enum.AutoCapitalization;
+import com.github.airext.keyboard.enum.AutoCorrection;
+import com.github.airext.keyboard.enum.NativeKeyboardType;
+import com.github.airext.keyboard.enum.ReturnKeyType;
+import com.github.airext.keyboard.enum.SpellChecking;
 import com.github.airext.keyboard.event.NativeKeyboardTextHideEvent;
 import com.github.airext.keyboard.event.NativeKeyboardTextInputEvent;
 import com.github.airext.keyboard.event.NativeKeyboardTextShowEvent;
@@ -68,6 +73,13 @@ public class NativeKeyboardTextDebugSimple extends Sprite {
         new PlainButton(this, {label: "Show Keyboard", y: 150, w: stage.stageWidth / contentScaleFactor, s: contentScaleFactor}, function(): void {
             var params: NativeKeyboardTextParams = new NativeKeyboardTextParams();
             params.text = "test";
+            params.isSecureTextEntry = false;
+            params.keyboardType = NativeKeyboardType.Default;
+            params.returnKeyType = ReturnKeyType.Done;
+            params.autoCorrection = AutoCorrection.Default;
+            params.autoCapitalization = AutoCapitalization.None;
+            params.spellChecking = SpellChecking.Default;
+            params.maxCharactersCount = 5;
             NativeKeyboardText.shared.showKeyboard(params);
         });
     }
