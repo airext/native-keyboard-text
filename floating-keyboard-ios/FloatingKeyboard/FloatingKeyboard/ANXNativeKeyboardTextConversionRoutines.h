@@ -1,6 +1,6 @@
 //
-//  ANXFloatingKeyboardConversionRoutines.h
-//  ANXFloatingKeyboard
+//  NativeKeyboardTextConversionRoutines.h
+//  NativeKeyboardText
 //
 //  Created by Max Rozdobudko on 10/20/19.
 //  Copyright © 2019 AirExt. All rights reserved.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ANXFloatingKeyboardConversionRoutines : NSObject
+@interface ANXNativeKeyboardTextConversionRoutines : NSObject
 
 +(FREObject) convertNSStringToFREObject:(NSString*)string;
 +(NSString*) convertFREObjectToNSString:(FREObject)string;

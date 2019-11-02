@@ -1,12 +1,12 @@
 //
-//  ANXFloatingKeyboard.m
-//  ANXFloatingKeyboard
+//  NativeKeyboardText.m
+//  NativeKeyboardText
 //
 //  Created by Max Rozdobudko on 10/20/19.
 //  Copyright © 2019 AirExt. All rights reserved.
 //
 
-#import "ANXFloatingKeyboard.h"
+#import "ANXNativeKeyboardText.h"
 #import "ANXTextField.h"
 
 #define PADDING 8.0f
@@ -17,7 +17,7 @@
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
 
-@implementation ANXFloatingKeyboard {
+@implementation ANXNativeKeyboardText {
     BOOL isKeyboardPresented;  // indicates if Keyboard is statically presented
     BOOL isKeyboardInDockMode; // indicates if Keyboard is presented and docked
     BOOL isKeyboardDismissing; // indicates if Keyboard is in transition to close state
@@ -26,8 +26,8 @@
 
 #pragma mark - Shared Instance
 
-static ANXFloatingKeyboard* _sharedInstance = nil;
-+ (ANXFloatingKeyboard*)sharedInstance {
+static ANXNativeKeyboardText* _sharedInstance = nil;
++ (ANXNativeKeyboardText*)sharedInstance {
     if (_sharedInstance == nil) {
         _sharedInstance = [[super allocWithZone:NULL] init];
 
@@ -41,8 +41,8 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 #pragma mark - API
 
-- (void)showKeyboard:(ANXFloatingKeyboardParams*)params {
-    NSLog(@"[ANXFloatingKeyboard showKeyboard]");
+- (void)showKeyboard:(ANXNativeKeyboardTextParams*)params {
+    NSLog(@"[NativeKeyboardText showKeyboard]");
 
     if (self.textField) {
         return;
@@ -64,7 +64,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 }
 
 - (void)hideKeyboard:(id)sender {
-    NSLog(@"[ANXFloatingKeyboard hideKeyboard]");
+    NSLog(@"[NativeKeyboardText hideKeyboard]");
 
     UIView* view = [self findTopmostView];
     if (view == nil) {
@@ -95,10 +95,10 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 #pragma mark - UIKeyboard
 
-@implementation ANXFloatingKeyboard (UIKeyboard)
+@implementation ANXNativeKeyboardText (UIKeyboard)
 
 - (void)keyboardWillShowNotification:(NSNotification *)notification {
-    NSLog(@"[ANXFloatingKeyboard keyboardWillShowNotification]");
+    NSLog(@"[NativeKeyboardText keyboardWillShowNotification]");
     isKeyboardInDockMode = YES;
 
     UIView* view = [self findTopmostView];
@@ -122,11 +122,11 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 }
 
 - (void)keyboardDidShowNotification:(NSNotification *)notification {
-    NSLog(@"[ANXFloatingKeyboard keyboardDidShowNotification]");
+    NSLog(@"[NativeKeyboardText keyboardDidShowNotification]");
 }
 
 - (void)keyboardWillHideNotification:(NSNotification *)notification {
-    NSLog(@"[ANXFloatingKeyboard keyboardWillHideNotification]");
+    NSLog(@"[NativeKeyboardText keyboardWillHideNotification]");
     NSLog(@"%@", notification.userInfo);
 
     NSDictionary* userInfo = notification.userInfo;
@@ -142,14 +142,14 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 }
 
 - (void)keyboardDidHideNotification:(NSNotification *)notification {
-    NSLog(@"[ANXFloatingKeyboard keyboardDidHideNotification]");
+    NSLog(@"[NativeKeyboardText keyboardDidHideNotification]");
     isKeyboardInDockMode = NO;
 }
 
 #pragma mark ChangeFrame
 
 - (void)keyboardWillChangeFrameNotification:(NSNotification *)notification {
-    NSLog(@"[ANXFloatingKeyboard keyboardWillChangeFrameNotification]");
+    NSLog(@"[NativeKeyboardText keyboardWillChangeFrameNotification]");
     NSLog(@"%@", notification.userInfo);
 
     NSDictionary* userInfo = notification.userInfo;
@@ -170,7 +170,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 }
 
 - (void)keyboardDidChangeFrameNotification:(NSNotification *)notification {
-    NSLog(@"[ANXFloatingKeyboard keyboardDidChangeFrameNotification]");
+    NSLog(@"[NativeKeyboardText keyboardDidChangeFrameNotification]");
     NSLog(@"%@", notification.userInfo);
 
     NSDictionary* userInfo = notification.userInfo;
@@ -202,10 +202,10 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 #pragma mark - UIDevice
 
-@implementation ANXFloatingKeyboard (UIDevice)
+@implementation ANXNativeKeyboardText (UIDevice)
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification*)notification {
-    NSLog(@"[ANXFloatingKeyboard deviceOrientationDidChangeNotification]");
+    NSLog(@"[NativeKeyboardText deviceOrientationDidChangeNotification]");
     NSLog(@"%@", notification.userInfo);
 
     [self adjustTextFieldFrame];
@@ -215,7 +215,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 #pragma mark - Utils
 
-@implementation ANXFloatingKeyboard (Utils)
+@implementation ANXNativeKeyboardText (Utils)
 
 - (UIView*)findTopmostView {
     UIViewController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
@@ -394,7 +394,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 #pragma mark - UITextFieldDelegate
 
-@implementation ANXFloatingKeyboard (UITextFieldDelegate)
+@implementation ANXNativeKeyboardText (UITextFieldDelegate)
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self hideKeyboard:nil];
@@ -419,13 +419,13 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    NSLog(@"[ANXFloatingKeyboard textFieldShouldBeginEditing]");
+    NSLog(@"[NativeKeyboardText textFieldShouldBeginEditing]");
     [self dispatch:@"FloatingKeyboard.Keyboard.Show" withLevel:@""];
     return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason {
-    NSLog(@"[ANXFloatingKeyboard textFieldDidEndEditing]");
+    NSLog(@"[NativeKeyboardText textFieldDidEndEditing]");
     [self dispatch:@"FloatingKeyboard.Keyboard.Hide" withLevel:[NSString stringWithFormat:@"{\"oldText\":\"%@\", \"newText\":\"%@\"}", _params.text ? _params.text : @"", textField.text]];
 }
 
@@ -433,7 +433,7 @@ static ANXFloatingKeyboard* _sharedInstance = nil;
 
 #pragma mark - FREDispatcher
 
-@implementation ANXFloatingKeyboard (FREDispatcher)
+@implementation ANXNativeKeyboardText (FREDispatcher)
 
 - (void)dispatch:(NSString*)code withLevel:(NSString*)level {
     FREDispatchStatusEventAsync(self.context, (const uint8_t*) [code UTF8String], (const uint8_t*) [level UTF8String]);

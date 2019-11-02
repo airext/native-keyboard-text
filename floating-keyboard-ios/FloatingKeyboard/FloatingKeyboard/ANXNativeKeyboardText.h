@@ -1,23 +1,23 @@
 //
-//  ANXFloatingKeyboard.h
-//  ANXFloatingKeyboard
+//  NativeKeyboardText.h
+//  NativeKeyboardText
 //
 //  Created by Max Rozdobudko on 10/20/19.
 //  Copyright © 2019 AirExt. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "ANXFloatingKeyboardParams.h"
+#import "ANXNativeKeyboardTextParams.h"
 #import "FlashRuntimeExtensions.h"
 
-@interface ANXFloatingKeyboard : NSObject {
-    ANXFloatingKeyboardParams* _params;
+@interface ANXNativeKeyboardText : NSObject {
+    ANXNativeKeyboardTextParams* _params;
     NSString* _latestInputString;
 }
 
 #pragma mark - Shared Instance
 
-+ (ANXFloatingKeyboard*) sharedInstance;
++ (ANXNativeKeyboardText*) sharedInstance;
 
 #pragma mark Properties
 
@@ -28,7 +28,7 @@
 
 #pragma mark - API
 
-- (void)showKeyboard:(ANXFloatingKeyboardParams*)params;
+- (void)showKeyboard:(ANXNativeKeyboardTextParams*)params;
 
 - (void)hideKeyboard:(id)sender;
 
@@ -36,7 +36,7 @@
 
 #pragma mark - UIKeyboard
 
-@interface ANXFloatingKeyboard (UIKeyboard)
+@interface ANXNativeKeyboardText (UIKeyboard)
 
 - (void)keyboardWillShowNotification:(NSNotification *)notification;
 - (void)keyboardDidShowNotification:(NSNotification *)notification;
@@ -49,7 +49,7 @@
 
 #pragma mark - UIDevice
 
-@interface ANXFloatingKeyboard (UIDevice)
+@interface ANXNativeKeyboardText (UIDevice)
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification*)notification;
 
@@ -57,7 +57,7 @@
 
 #pragma mark - Utils
 
-@interface ANXFloatingKeyboard (Utils)
+@interface ANXNativeKeyboardText (Utils)
 
 - (UIView*)findTopmostView;
 
@@ -76,13 +76,13 @@
 
 #pragma mark - UITextFieldDelegate
 
-@interface ANXFloatingKeyboard (UITextFieldDelegate) <UITextFieldDelegate>
+@interface ANXNativeKeyboardText (UITextFieldDelegate) <UITextFieldDelegate>
 
 @end
 
 #pragma mark - FREDispatcher
 
-@interface ANXFloatingKeyboard (FREDispatcher)
+@interface ANXNativeKeyboardText (FREDispatcher)
 
 - (void)dispatch:(NSString*) code withLevel:(NSString*)level;
 

@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		50893093235DBED30016D84F /* ANXFloatingKeyboardParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 50893092235DBED30016D84F /* ANXFloatingKeyboardParams.m */; };
+		50893093235DBED30016D84F /* ANXNativeKeyboardTextParams.m in Sources */ = {isa = PBXBuildFile; fileRef = 50893092235DBED30016D84F /* ANXNativeKeyboardTextParams.m */; };
 		50C5550B235D8AF700B7D927 /* ANXTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 50C5550A235D8AF700B7D927 /* ANXTextField.m */; };
-		50DCF88F235C64A50073FA3F /* ANXFloatingKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCF88E235C64A50073FA3F /* ANXFloatingKeyboard.m */; };
-		50DCF890235C64A50073FA3F /* ANXFloatingKeyboard.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50DCF88D235C64A50073FA3F /* ANXFloatingKeyboard.h */; };
-		50DCF89B235C654D0073FA3F /* ANXFloatingKeyboardFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCF89A235C654D0073FA3F /* ANXFloatingKeyboardFacade.m */; };
-		50DCF89E235C65A30073FA3F /* ANXFloatingKeyboardConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCF89D235C65A30073FA3F /* ANXFloatingKeyboardConversionRoutines.m */; };
+		50DCF88F235C64A50073FA3F /* ANXNativeKeyboardText.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCF88E235C64A50073FA3F /* ANXNativeKeyboardText.m */; };
+		50DCF890235C64A50073FA3F /* ANXNativeKeyboardText.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 50DCF88D235C64A50073FA3F /* ANXNativeKeyboardText.h */; };
+		50DCF89B235C654D0073FA3F /* ANXNativeKeyboardTextFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCF89A235C654D0073FA3F /* ANXNativeKeyboardTextFacade.m */; };
+		50DCF89E235C65A30073FA3F /* ANXNativeKeyboardTextConversionRoutines.m in Sources */ = {isa = PBXBuildFile; fileRef = 50DCF89D235C65A30073FA3F /* ANXNativeKeyboardTextConversionRoutines.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,25 +22,25 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				50DCF890235C64A50073FA3F /* ANXFloatingKeyboard.h in CopyFiles */,
+				50DCF890235C64A50073FA3F /* ANXNativeKeyboardText.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		50893091235DBED30016D84F /* ANXFloatingKeyboardParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXFloatingKeyboardParams.h; sourceTree = "<group>"; };
-		50893092235DBED30016D84F /* ANXFloatingKeyboardParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXFloatingKeyboardParams.m; sourceTree = "<group>"; };
+		50893091235DBED30016D84F /* ANXNativeKeyboardTextParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNativeKeyboardTextParams.h; sourceTree = "<group>"; };
+		50893092235DBED30016D84F /* ANXNativeKeyboardTextParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNativeKeyboardTextParams.m; sourceTree = "<group>"; };
 		50C55509235D8AF700B7D927 /* ANXTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXTextField.h; sourceTree = "<group>"; };
 		50C5550A235D8AF700B7D927 /* ANXTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXTextField.m; sourceTree = "<group>"; };
 		50DCF88A235C64A50073FA3F /* libANXFloatingKeyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANXFloatingKeyboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		50DCF88D235C64A50073FA3F /* ANXFloatingKeyboard.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXFloatingKeyboard.h; sourceTree = "<group>"; };
-		50DCF88E235C64A50073FA3F /* ANXFloatingKeyboard.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXFloatingKeyboard.m; sourceTree = "<group>"; };
+		50DCF88D235C64A50073FA3F /* ANXNativeKeyboardText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNativeKeyboardText.h; sourceTree = "<group>"; };
+		50DCF88E235C64A50073FA3F /* ANXNativeKeyboardText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNativeKeyboardText.m; sourceTree = "<group>"; };
 		50DCF898235C65100073FA3F /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
-		50DCF899235C654D0073FA3F /* ANXFloatingKeyboardFacade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXFloatingKeyboardFacade.h; sourceTree = "<group>"; };
-		50DCF89A235C654D0073FA3F /* ANXFloatingKeyboardFacade.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXFloatingKeyboardFacade.m; sourceTree = "<group>"; };
-		50DCF89C235C65A30073FA3F /* ANXFloatingKeyboardConversionRoutines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXFloatingKeyboardConversionRoutines.h; sourceTree = "<group>"; };
-		50DCF89D235C65A30073FA3F /* ANXFloatingKeyboardConversionRoutines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXFloatingKeyboardConversionRoutines.m; sourceTree = "<group>"; };
+		50DCF899235C654D0073FA3F /* ANXNativeKeyboardTextFacade.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNativeKeyboardTextFacade.h; sourceTree = "<group>"; };
+		50DCF89A235C654D0073FA3F /* ANXNativeKeyboardTextFacade.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNativeKeyboardTextFacade.m; sourceTree = "<group>"; };
+		50DCF89C235C65A30073FA3F /* ANXNativeKeyboardTextConversionRoutines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNativeKeyboardTextConversionRoutines.h; sourceTree = "<group>"; };
+		50DCF89D235C65A30073FA3F /* ANXNativeKeyboardTextConversionRoutines.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNativeKeyboardTextConversionRoutines.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,16 +74,16 @@
 			isa = PBXGroup;
 			children = (
 				50DCF897235C65030073FA3F /* Supporting Files */,
-				50DCF88D235C64A50073FA3F /* ANXFloatingKeyboard.h */,
-				50DCF88E235C64A50073FA3F /* ANXFloatingKeyboard.m */,
-				50DCF89C235C65A30073FA3F /* ANXFloatingKeyboardConversionRoutines.h */,
-				50DCF89D235C65A30073FA3F /* ANXFloatingKeyboardConversionRoutines.m */,
-				50DCF899235C654D0073FA3F /* ANXFloatingKeyboardFacade.h */,
-				50DCF89A235C654D0073FA3F /* ANXFloatingKeyboardFacade.m */,
+				50DCF88D235C64A50073FA3F /* ANXNativeKeyboardText.h */,
+				50DCF88E235C64A50073FA3F /* ANXNativeKeyboardText.m */,
+				50DCF89C235C65A30073FA3F /* ANXNativeKeyboardTextConversionRoutines.h */,
+				50DCF89D235C65A30073FA3F /* ANXNativeKeyboardTextConversionRoutines.m */,
+				50DCF899235C654D0073FA3F /* ANXNativeKeyboardTextFacade.h */,
+				50DCF89A235C654D0073FA3F /* ANXNativeKeyboardTextFacade.m */,
 				50C55509235D8AF700B7D927 /* ANXTextField.h */,
 				50C5550A235D8AF700B7D927 /* ANXTextField.m */,
-				50893091235DBED30016D84F /* ANXFloatingKeyboardParams.h */,
-				50893092235DBED30016D84F /* ANXFloatingKeyboardParams.m */,
+				50893091235DBED30016D84F /* ANXNativeKeyboardTextParams.h */,
+				50893092235DBED30016D84F /* ANXNativeKeyboardTextParams.m */,
 			);
 			path = FloatingKeyboard;
 			sourceTree = "<group>";
@@ -153,11 +153,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50DCF89B235C654D0073FA3F /* ANXFloatingKeyboardFacade.m in Sources */,
+				50DCF89B235C654D0073FA3F /* ANXNativeKeyboardTextFacade.m in Sources */,
 				50C5550B235D8AF700B7D927 /* ANXTextField.m in Sources */,
-				50893093235DBED30016D84F /* ANXFloatingKeyboardParams.m in Sources */,
-				50DCF89E235C65A30073FA3F /* ANXFloatingKeyboardConversionRoutines.m in Sources */,
-				50DCF88F235C64A50073FA3F /* ANXFloatingKeyboard.m in Sources */,
+				50893093235DBED30016D84F /* ANXNativeKeyboardTextParams.m in Sources */,
+				50DCF89E235C65A30073FA3F /* ANXNativeKeyboardTextConversionRoutines.m in Sources */,
+				50DCF88F235C64A50073FA3F /* ANXNativeKeyboardText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

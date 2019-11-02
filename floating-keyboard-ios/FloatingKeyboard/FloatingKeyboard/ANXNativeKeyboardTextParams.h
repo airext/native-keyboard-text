@@ -1,6 +1,6 @@
 //
-//  ANXFloatingKeyboardParams.h
-//  ANXFloatingKeyboard
+//  NativeKeyboardTextParams.h
+//  NativeKeyboardText
 //
 //  Created by Max Rozdobudko on 21.10.2019.
 //  Copyright © 2019 AirExt. All rights reserved.
@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ANXFloatingKeyboardParams : NSObject
+@interface ANXNativeKeyboardTextParams : NSObject
 
 - (instancetype)initWithFREObject:(FREObject)freObject;
 

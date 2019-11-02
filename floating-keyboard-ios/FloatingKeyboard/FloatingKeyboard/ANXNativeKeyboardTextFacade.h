@@ -1,6 +1,6 @@
 //
-//  ANXFloatingKeyboardFacade.h
-//  ANXFloatingKeyboard
+//  NativeKeyboardTextFacade.h
+//  NativeKeyboardText
 //
 //  Created by Max Rozdobudko on 10/20/19.
 //  Copyright © 2019 AirExt. All rights reserved.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ANXFloatingKeyboardFacade : NSObject
+@interface ANXNativeKeyboardTextFacade : NSObject
 
 @end
 
