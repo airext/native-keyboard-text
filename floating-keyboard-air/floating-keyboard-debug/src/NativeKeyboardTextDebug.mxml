@@ -6,14 +6,14 @@
 
     <fx:Script>
         <![CDATA[
-        import com.github.airext.FloatingKeyboard;
-        import com.github.airext.keyboard.FloatingKeyboardParams;
-        import com.github.airext.keyboard.event.FloatingKeyboardHideEvent;
-        import com.github.airext.keyboard.event.FloatingKeyboardShowEvent;
-        import com.github.airext.keyboard.event.FloatingKeyboardInputEvent;
+        import com.github.airext.NativeKeyboardText;
+        import com.github.airext.keyboard.NativeKeyboardTextParams;
+        import com.github.airext.keyboard.event.NativeKeyboardTextHideEvent;
+        import com.github.airext.keyboard.event.NativeKeyboardTextShowEvent;
+        import com.github.airext.keyboard.event.NativeKeyboardTextInputEvent;
 
         [Bindable]
-        private var params: FloatingKeyboardParams = new FloatingKeyboardParams();
+        private var params: NativeKeyboardTextParams = new NativeKeyboardTextParams();
 
         [Bindable]
         private var shouldAutoHideKeyboard: Boolean = false;
@@ -25,25 +25,25 @@
         }
 
         private function isSupportedTapped(): void {
-            log(FloatingKeyboard.isSupported);
+            log(NativeKeyboardText.isSupported);
         }
 
         private function extensionVersionTapped(): void {
-            log(FloatingKeyboard.extensionVersion);
+            log(NativeKeyboardText.extensionVersion);
         }
 
         private function openKeyboard(): void {
-            FloatingKeyboard.shared.showKeyboard(params);
+            NativeKeyboardText.shared.showKeyboard(params);
             if (shouldAutoHideKeyboard) {
                 var handle: uint = setTimeout(function(): void {
                     clearTimeout(handle);
-                    FloatingKeyboard.shared.hideKeyboard();
+                    NativeKeyboardText.shared.hideKeyboard();
                 }, 10 * 1000);
             }
         }
 
         private function hideKeyboard(): void {
-            FloatingKeyboard.shared.hideKeyboard();
+            NativeKeyboardText.shared.hideKeyboard();
         }
 
         ]]>
@@ -51,15 +51,15 @@
 
     <f:creationComplete>
         <![CDATA[
-        FloatingKeyboard.shared.addEventListener(FloatingKeyboardShowEvent.SHOW, function(event: FloatingKeyboardShowEvent): void {
+        NativeKeyboardText.shared.addEventListener(NativeKeyboardTextShowEvent.SHOW, function(event: NativeKeyboardTextShowEvent): void {
             log("Keyboard did show");
         });
 
-        FloatingKeyboard.shared.addEventListener(FloatingKeyboardHideEvent.HIDE, function (event: FloatingKeyboardHideEvent): void {
+        NativeKeyboardText.shared.addEventListener(NativeKeyboardTextHideEvent.HIDE, function (event: NativeKeyboardTextHideEvent): void {
             log("Keyboard did hide with oldText:" + event.oldText + ", newText: " + event.newText);
         });
 
-        FloatingKeyboard.shared.addEventListener(FloatingKeyboardInputEvent.INPUT, function(event: FloatingKeyboardInputEvent): void {
+        NativeKeyboardText.shared.addEventListener(NativeKeyboardTextInputEvent.INPUT, function(event: NativeKeyboardTextInputEvent): void {
             log("Keyboard input: " + event.text);
         });
         ]]>

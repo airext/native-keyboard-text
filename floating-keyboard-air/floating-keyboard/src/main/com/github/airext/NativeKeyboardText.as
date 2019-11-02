@@ -2,11 +2,11 @@
  * Created by max.rozdobudko@gmail.com on 10/20/19.
  */
 package com.github.airext {
-import com.github.airext.core.floating_keyboard;
-import com.github.airext.keyboard.FloatingKeyboardParams;
-import com.github.airext.keyboard.event.FloatingKeyboardHideEvent;
-import com.github.airext.keyboard.event.FloatingKeyboardInputEvent;
-import com.github.airext.keyboard.event.FloatingKeyboardShowEvent;
+import com.github.airext.core.keyboard;
+import com.github.airext.keyboard.NativeKeyboardTextParams;
+import com.github.airext.keyboard.event.NativeKeyboardTextHideEvent;
+import com.github.airext.keyboard.event.NativeKeyboardTextInputEvent;
+import com.github.airext.keyboard.event.NativeKeyboardTextShowEvent;
 
 import flash.events.EventDispatcher;
 import flash.events.StatusEvent;
@@ -15,13 +15,13 @@ import flash.filesystem.File;
 import flash.filesystem.FileMode;
 import flash.filesystem.FileStream;
 
-use namespace floating_keyboard;
+use namespace keyboard;
 
-[Event(name="floatingKeyboardShow", type="com.github.airext.keyboard.event.FloatingKeyboardShowEvent")]
-[Event(name="floatingKeyboardHide", type="com.github.airext.keyboard.event.FloatingKeyboardHideEvent")]
-[Event(name="floatingKeyboardInput", type="com.github.airext.keyboard.event.FloatingKeyboardInputEvent")]
+[Event(name="nativeKeyboardTextShow", type="com.github.airext.keyboard.event.NativeKeyboardTextShowEvent")]
+[Event(name="nativeKeyboardTextHide", type="com.github.airext.keyboard.event.NativeKeyboardTextHideEvent")]
+[Event(name="nativeKeyboardTextInput", type="com.github.airext.keyboard.event.NativeKeyboardTextInputEvent")]
 
-public class FloatingKeyboard extends EventDispatcher {
+public class NativeKeyboardText extends EventDispatcher {
 
     //--------------------------------------------------------------------------
     //
@@ -29,7 +29,7 @@ public class FloatingKeyboard extends EventDispatcher {
     //
     //--------------------------------------------------------------------------
 
-    floating_keyboard static const EXTENSION_ID:String = "com.github.airext.FloatingKeyboard";
+    keyboard static const EXTENSION_ID:String = "com.github.airext.NativeKeyboardText";
 
     //--------------------------------------------------------------------------
     //
@@ -42,7 +42,7 @@ public class FloatingKeyboard extends EventDispatcher {
     //-------------------------------------
 
     private static var _context: ExtensionContext;
-    floating_keyboard static function get context(): ExtensionContext {
+    keyboard static function get context(): ExtensionContext {
         if (_context == null) {
             _context = ExtensionContext.createExtensionContext(EXTENSION_ID, null);
         }
@@ -67,11 +67,11 @@ public class FloatingKeyboard extends EventDispatcher {
     //  sharedInstance
     //-------------------------------------
 
-    private static var instance: FloatingKeyboard;
+    private static var instance: NativeKeyboardText;
 
-    public static function get shared(): FloatingKeyboard {
+    public static function get shared(): NativeKeyboardText {
         if (instance == null) {
-            new FloatingKeyboard();
+            new NativeKeyboardText();
         }
         return instance;
     }
@@ -129,7 +129,7 @@ public class FloatingKeyboard extends EventDispatcher {
     //
     //--------------------------------------------------------------------------
 
-    public function FloatingKeyboard() {
+    public function NativeKeyboardText() {
         super();
         instance = this;
         context.addEventListener(StatusEvent.STATUS, statusHandler);
@@ -141,7 +141,7 @@ public class FloatingKeyboard extends EventDispatcher {
     //
     //--------------------------------------------------------------------------
 
-    public function showKeyboard(params: FloatingKeyboardParams): void {
+    public function showKeyboard(params: NativeKeyboardTextParams): void {
         context.call("showKeyboard", params);
     }
 
@@ -156,18 +156,18 @@ public class FloatingKeyboard extends EventDispatcher {
     //--------------------------------------------------------------------------
 
     private function statusHandler(event: StatusEvent):void {
-        trace("FloatingKeyboard.status: ", event.code, event.level);
+        trace("NativeKeyboardText.status: ", event.code, event.level);
         switch (event.code) {
-            case "FloatingKeyboard.Keyboard.Hide":
+            case "NativeKeyboardText.Keyboard.Hide":
                 var params: Object = parseParams(event.level);
-                dispatchEvent(new FloatingKeyboardHideEvent(params.oldText, params.newText));
+                dispatchEvent(new NativeKeyboardTextHideEvent(params.oldText, params.newText));
                 break;
-            case "FloatingKeyboard.Keyboard.Show":
-                dispatchEvent(new FloatingKeyboardShowEvent());
+            case "NativeKeyboardText.Keyboard.Show":
+                dispatchEvent(new NativeKeyboardTextShowEvent());
                 break;
-            case "FloatingKeyboard.Keyboard.Input":
+            case "NativeKeyboardText.Keyboard.Input":
                 var text: String = event.level;
-                dispatchEvent(new FloatingKeyboardInputEvent(text));
+                dispatchEvent(new NativeKeyboardTextInputEvent(text));
                 break;
         }
     }

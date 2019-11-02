@@ -1,5 +1,5 @@
 <extension xmlns="http://ns.adobe.com/air/extension/32.0">
-  <id>com.github.airext.FloatingKeyboard</id>
+  <id>com.github.airext.NativeKeyboardText</id>
   <versionNumber>0.12.0</versionNumber>
   <platforms>
     <platform name="iPhone-ARM">

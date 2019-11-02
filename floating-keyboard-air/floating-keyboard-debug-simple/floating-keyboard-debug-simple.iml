@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="floating-keyboard-debug-simple">
     <configurations>
-      <configuration name="floating-keyboard-debug-simple" target-platform="Mobile" pure-as="true" main-class="FloatingKeyboardDebugSimple" output-file="Main.swf" output-folder="$MODULE_DIR$/bin">
+      <configuration name="floating-keyboard-debug-simple" target-platform="Mobile" pure-as="true" main-class="NativeKeyboardTextDebugSimple" output-file="Main.swf" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="32.0">
           <entries>
             <entry library-id="052438f6-f9ed-4d92-a6ff-6401df929518">
@@ -14,7 +14,7 @@
         <compiler-options />
         <packaging-air-desktop />
         <packaging-android package-file-name="Main" />
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/FloatingKeyboardDebugSimple-app.xml" package-file-name="Main">
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/NativeKeyboardTextDebugSimple-app.xml" package-file-name="Main">
           <files-to-package>
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-375w-667h@2x~iphone.png" path-in-package="Default-375w-667h@2x~iphone.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-414w-736h@3x~iphone.png" path-in-package="Default-414w-736h@3x~iphone.png" />

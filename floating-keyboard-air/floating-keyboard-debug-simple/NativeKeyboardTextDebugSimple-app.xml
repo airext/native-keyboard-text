@@ -4,20 +4,20 @@
 <!-- Adobe AIR Application Descriptor File Template.
      Specifies parameters for identifying, installing, and launching AIR applications.
 
-     xmlns - The Adobe AIR namespace: http://ns.adobe.com/air/application/32.0.
+     xmlns - The Adobe AIR namespace: http://ns.adobe.com/air/application/33.0.
      The last segment of the namespace specifies the version of the AIR runtime required for this application to run.
 
      minimumPatchLevel - The minimum patch level of the AIR runtime required to run the application. Optional. -->
 
     <!-- A universally unique application identifier. Must be unique across all AIR applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.github.airext.FloatingKeyboardDebug</id>
+    <id>com.github.airext.NativeKeyboardTextDebugSimple</id>
 
     <!-- Used as the filename for the application. Required. -->
-    <filename>FloatingKeyboardDebug</filename>
+    <filename>NativeKeyboardTextDebugSimple</filename>
 
     <!-- The name that is displayed in the AIR application installer. May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <name>FloatingKeyboardDebug</name>
+    <name>NativeKeyboardTextDebugSimple</name>
 
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade.
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
@@ -42,7 +42,7 @@
 
     <!-- Identifies the ActionScript extensions used by an application. -->
     <extensions>
-        <extensionID>com.github.airext.FloatingKeyboard</extensionID>
+        <extensionID>com.github.airext.NativeKeyboardText</extensionID>
     </extensions>
 
     <!-- Settings for the application's initial window. Required. -->

@@ -1,10 +1,10 @@
 package {
 
-import com.github.airext.FloatingKeyboard;
-import com.github.airext.keyboard.FloatingKeyboardParams;
-import com.github.airext.keyboard.event.FloatingKeyboardHideEvent;
-import com.github.airext.keyboard.event.FloatingKeyboardInputEvent;
-import com.github.airext.keyboard.event.FloatingKeyboardShowEvent;
+import com.github.airext.NativeKeyboardText;
+import com.github.airext.keyboard.NativeKeyboardTextParams;
+import com.github.airext.keyboard.event.NativeKeyboardTextHideEvent;
+import com.github.airext.keyboard.event.NativeKeyboardTextInputEvent;
+import com.github.airext.keyboard.event.NativeKeyboardTextShowEvent;
 
 import flash.display.Sprite;
 import flash.display.StageAlign;
@@ -12,15 +12,15 @@ import flash.display.StageScaleMode;
 import flash.text.TextField;
 import flash.text.TextFormat;
 
-public class FloatingKeyboardDebugSimple extends Sprite {
+public class NativeKeyboardTextDebugSimple extends Sprite {
 
-    public function FloatingKeyboardDebugSimple() {
+    public function NativeKeyboardTextDebugSimple() {
         super();
 
-        if (FloatingKeyboard.isSupported) {
-            trace(FloatingKeyboard.extensionVersion);
+        if (NativeKeyboardText.isSupported) {
+            trace(NativeKeyboardText.extensionVersion);
         } else {
-            trace("FloatingKeyboard is not supported on this platform");
+            trace("NativeKeyboardText is not supported on this platform");
             return;
         }
 
@@ -53,22 +53,22 @@ public class FloatingKeyboardDebugSimple extends Sprite {
 
         // subscribe to events
 
-        FloatingKeyboard.shared.addEventListener(FloatingKeyboardHideEvent.HIDE, function(event: FloatingKeyboardHideEvent): void {
+        NativeKeyboardText.shared.addEventListener(NativeKeyboardTextHideEvent.HIDE, function(event: NativeKeyboardTextHideEvent): void {
             log("Keyboard did hide with oldText:" + event.oldText + ", newText: " + event.newText);
         });
-        FloatingKeyboard.shared.addEventListener(FloatingKeyboardShowEvent.SHOW, function(event: FloatingKeyboardShowEvent): void {
+        NativeKeyboardText.shared.addEventListener(NativeKeyboardTextShowEvent.SHOW, function(event: NativeKeyboardTextShowEvent): void {
             log("Keyboard did show");
         });
-        FloatingKeyboard.shared.addEventListener(FloatingKeyboardInputEvent.INPUT, function(event: FloatingKeyboardInputEvent): void {
+        NativeKeyboardText.shared.addEventListener(NativeKeyboardTextInputEvent.INPUT, function(event: NativeKeyboardTextInputEvent): void {
             log("Keyboard input: " + event.text);
         });
 
         // buttons
 
         new PlainButton(this, {label: "Show Keyboard", y: 150, w: stage.stageWidth / contentScaleFactor, s: contentScaleFactor}, function(): void {
-            var params: FloatingKeyboardParams = new FloatingKeyboardParams();
+            var params: NativeKeyboardTextParams = new NativeKeyboardTextParams();
             params.text = "test";
-            FloatingKeyboard.shared.showKeyboard(params);
+            NativeKeyboardText.shared.showKeyboard(params);
         });
     }
 

@@ -6,7 +6,7 @@ import flash.events.Event;
 import flash.events.EventDispatcher;
 import flash.net.registerClassAlias;
 
-public class FloatingKeyboardParams extends EventDispatcher {
+public class NativeKeyboardTextParams extends EventDispatcher {
 
     //--------------------------------------------------------------------------
     //
@@ -15,7 +15,7 @@ public class FloatingKeyboardParams extends EventDispatcher {
     //--------------------------------------------------------------------------
 
     {
-        registerClassAlias("com.github.airext.keyboard.FloatingKeyboardParams", FloatingKeyboardParams);
+        registerClassAlias("com.github.airext.keyboard.NativeKeyboardTextParams", NativeKeyboardTextParams);
     }
 
     //--------------------------------------------------------------------------
@@ -24,7 +24,7 @@ public class FloatingKeyboardParams extends EventDispatcher {
     //
     //--------------------------------------------------------------------------
 
-    public function FloatingKeyboardParams() {
+    public function NativeKeyboardTextParams() {
         super();
     }
 
@@ -89,7 +89,7 @@ public class FloatingKeyboardParams extends EventDispatcher {
     //--------------------------------------------------------------------------
 
     override public function toString(): String {
-        return "[FloatingKeyboardParams(text=\""+text+"\", isSecureTextEntry=\""+isSecureTextEntry+"\", maxCharactersCount=\""+maxCharactersCount+"\")]";
+        return "[NativeKeyboardTextParams(text=\""+text+"\", isSecureTextEntry=\""+isSecureTextEntry+"\", maxCharactersCount=\""+maxCharactersCount+"\")]";
     }
 }
 }

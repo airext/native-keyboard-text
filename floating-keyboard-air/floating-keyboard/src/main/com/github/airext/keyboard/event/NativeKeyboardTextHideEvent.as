@@ -4,11 +4,11 @@
 package com.github.airext.keyboard.event {
 import flash.events.Event;
 
-public class FloatingKeyboardHideEvent extends Event {
+public class NativeKeyboardTextHideEvent extends Event {
 
-    public static const HIDE: String = "floatingKeyboardHide";
+    public static const HIDE: String = "nativeKeyboardTextHide";
 
-    public function FloatingKeyboardHideEvent(oldText: String, newText: String) {
+    public function NativeKeyboardTextHideEvent(oldText: String, newText: String) {
         super(HIDE);
         _oldText = oldText;
         _newText = newText;
@@ -25,7 +25,7 @@ public class FloatingKeyboardHideEvent extends Event {
     }
 
     override public function toString(): String {
-        return "[FloatingKeyboardHideEvent(oldText=\""+oldText+"\", newText=\""+newText+"\")]";
+        return "[NativeKeyboardTextHideEvent(oldText=\""+oldText+"\", newText=\""+newText+"\")]";
     }
 }
 }

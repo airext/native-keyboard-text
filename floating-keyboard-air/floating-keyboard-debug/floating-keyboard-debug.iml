@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="FlexBuildConfigurationManager" active="floating-keyboard-debug">
     <configurations>
-      <configuration name="floating-keyboard-debug" target-platform="Mobile" main-class="FloatingKeyboardDebug" output-file="Main.swf" output-folder="$MODULE_DIR$/bin">
+      <configuration name="floating-keyboard-debug" target-platform="Mobile" main-class="NativeKeyboardTextDebug" output-file="Main.swf" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="32.0">
           <entries>
             <entry library-id="67ed7fad-cc17-4db1-a156-520b53c7da9d">
@@ -20,7 +20,7 @@
         <compiler-options />
         <packaging-air-desktop />
         <packaging-android package-file-name="Main" />
-        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/FloatingKeyboardDebug-app.xml" package-file-name="Main">
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/NativeKeyboardTextDebug-app.xml" package-file-name="Main">
           <files-to-package>
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-375w-667h@2x~iphone.png" path-in-package="Default-375w-667h@2x~iphone.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default-414w-736h@3x~iphone.png" path-in-package="Default-414w-736h@3x~iphone.png" />

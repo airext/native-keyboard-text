@@ -2,18 +2,18 @@
  * Created by max.rozdobudko@gmail.com on 10/20/19.
  */
 package com.github.airext {
-import com.github.airext.core.floating_keyboard;
-import com.github.airext.keyboard.FloatingKeyboardParams;
+import com.github.airext.core.keyboard;
+import com.github.airext.keyboard.NativeKeyboardTextParams;
 
 import flash.events.EventDispatcher;
 import flash.system.Capabilities;
 
-use namespace floating_keyboard;
+use namespace keyboard;
 
-[Event(name="floatingKeyboardShow", type="com.github.airext.keyboard.event.FloatingKeyboardShowEvent")]
-[Event(name="floatingKeyboardHide", type="com.github.airext.keyboard.event.FloatingKeyboardHideEvent")]
+[Event(name="nativeKeyboardTextShow", type="com.github.airext.keyboard.event.NativeKeyboardTextShowEvent")]
+[Event(name="nativeKeyboardTextHide", type="com.github.airext.keyboard.event.NativeKeyboardTextHideEvent")]
 
-public class FloatingKeyboard extends EventDispatcher {
+public class NativeKeyboardText extends EventDispatcher {
 
     //--------------------------------------------------------------------------
     //
@@ -33,11 +33,11 @@ public class FloatingKeyboard extends EventDispatcher {
     //  sharedInstance
     //-------------------------------------
 
-    private static var instance: FloatingKeyboard;
+    private static var instance: NativeKeyboardText;
 
-    public static function get shared(): FloatingKeyboard {
+    public static function get shared(): NativeKeyboardText {
         if (instance == null) {
-            new FloatingKeyboard();
+            new NativeKeyboardText();
         }
         return instance;
     }
@@ -47,7 +47,7 @@ public class FloatingKeyboard extends EventDispatcher {
     //-------------------------------------
 
     public static function get extensionVersion(): String {
-        trace("FloatingKeyboard extension is not supported on " + Capabilities.os);
+        trace("NativeKeyboardText extension is not supported on " + Capabilities.os);
         return null;
     }
 
@@ -57,7 +57,7 @@ public class FloatingKeyboard extends EventDispatcher {
     //
     //--------------------------------------------------------------------------
 
-    public function FloatingKeyboard() {
+    public function NativeKeyboardText() {
         super();
         instance = this;
     }
@@ -68,12 +68,12 @@ public class FloatingKeyboard extends EventDispatcher {
     //
     //--------------------------------------------------------------------------
 
-    public function showKeyboard(params: FloatingKeyboardParams): void {
-        trace("FloatingKeyboard extension is not supported on " + Capabilities.os);
+    public function showKeyboard(params: NativeKeyboardTextParams): void {
+        trace("NativeKeyboardText extension is not supported on " + Capabilities.os);
     }
 
     public function hideKeyboard(): void {
-        trace("FloatingKeyboard extension is not supported on " + Capabilities.os);
+        trace("NativeKeyboardText extension is not supported on " + Capabilities.os);
     }
 
 }
