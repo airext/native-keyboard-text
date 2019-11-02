@@ -5,18 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="510aa090-1e46-47ea-9e2e-f37dc3233a52" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextParams.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardText.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboard.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardText.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardConversionRoutines.h" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextConversionRoutines.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardConversionRoutines.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextConversionRoutines.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardFacade.h" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextFacade.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardFacade.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextFacade.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardParams.h" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextParams.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXFloatingKeyboardParams.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXTextField.h" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXTextField.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXTextField.m" beforeDir="false" afterPath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXTextField.m" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../floating-keyboard-ios/NativeKeyboardText/NativeKeyboardText.xcodeproj/project.pbxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../floating-keyboard-ios/NativeKeyboardText/NativeKeyboardText.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../floating-keyboard-ios/NativeKeyboardText/NativeKeyboardText.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../build/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.ane" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.ane" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.swc" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug-simple/ane/com.github.airext.FloatingKeyboard.swc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.ane" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.ane" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.swc" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard-debug/ane/com.github.airext.FloatingKeyboard.swc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/floating-keyboard/build/extension.xml" beforeDir="false" afterPath="$PROJECT_DIR$/floating-keyboard/build/extension.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardText.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardText.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextConversionRoutines.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextConversionRoutines.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextFacade.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextFacade.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextParams.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXNativeKeyboardTextParams.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXTextField.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/ANXTextField.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../floating-keyboard-ios/FloatingKeyboard/FloatingKeyboard/FlashRuntimeExtensions.h" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +64,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/floating-keyboard/src/main/com/github/airext/keyboard/event" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15295815" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
@@ -138,7 +150,7 @@
         </LauncherParameters>
       </option>
       <option name="mobileRunTarget" value="iOSDevice" />
-      <option name="moduleName" value="floating-keyboard-debug-simple" />
+      <option name="moduleName" value="native-keyboard-text-debug-simple" />
       <option name="overriddenMainClass" value="" />
       <option name="overriddenOutputFileName" value="" />
       <option name="overrideMainClass" value="false" />
@@ -177,7 +189,7 @@
         </LauncherParameters>
       </option>
       <option name="mobileRunTarget" value="iOSDevice" />
-      <option name="moduleName" value="floating-keyboard-debug" />
+      <option name="moduleName" value="native-keyboard-text-debug" />
       <option name="overriddenMainClass" value="" />
       <option name="overriddenOutputFileName" value="" />
       <option name="overrideMainClass" value="false" />
@@ -187,6 +199,53 @@
       <option name="screenWidth" value="0" />
       <option name="url" value="http://" />
       <option name="usbDebugPort" value="7936" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="native-keyboard-text-debug-simple" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="native-keyboard-text-debug-simple" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -223,6 +282,7 @@
       <workItem from="1572254938030" duration="1206000" />
       <workItem from="1572270647169" duration="295000" />
       <workItem from="1572542703810" duration="4831000" />
+      <workItem from="1572688596942" duration="208000" />
     </task>
     <servers />
   </component>

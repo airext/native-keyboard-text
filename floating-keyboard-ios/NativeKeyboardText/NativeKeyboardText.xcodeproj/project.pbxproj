@@ -33,7 +33,7 @@
 		50893092235DBED30016D84F /* ANXNativeKeyboardTextParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNativeKeyboardTextParams.m; sourceTree = "<group>"; };
 		50C55509235D8AF700B7D927 /* ANXTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXTextField.h; sourceTree = "<group>"; };
 		50C5550A235D8AF700B7D927 /* ANXTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXTextField.m; sourceTree = "<group>"; };
-		50DCF88A235C64A50073FA3F /* libANXFloatingKeyboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANXFloatingKeyboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		50DCF88A235C64A50073FA3F /* libANXNativeKeyboardText.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANXNativeKeyboardText.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		50DCF88D235C64A50073FA3F /* ANXNativeKeyboardText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANXNativeKeyboardText.h; sourceTree = "<group>"; };
 		50DCF88E235C64A50073FA3F /* ANXNativeKeyboardText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANXNativeKeyboardText.m; sourceTree = "<group>"; };
 		50DCF898235C65100073FA3F /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlashRuntimeExtensions.h; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		50DCF88B235C64A50073FA3F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50DCF88A235C64A50073FA3F /* libANXFloatingKeyboard.a */,
+				50DCF88A235C64A50073FA3F /* libANXNativeKeyboardText.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,9 +99,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		50DCF889235C64A50073FA3F /* ANXFloatingKeyboard */ = {
+		50DCF889235C64A50073FA3F /* ANXNativeKeyboardText */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 50DCF893235C64A50073FA3F /* Build configuration list for PBXNativeTarget "ANXFloatingKeyboard" */;
+			buildConfigurationList = 50DCF893235C64A50073FA3F /* Build configuration list for PBXNativeTarget "ANXNativeKeyboardText" */;
 			buildPhases = (
 				50DCF886235C64A50073FA3F /* Sources */,
 				50DCF887235C64A50073FA3F /* Frameworks */,
@@ -111,9 +111,9 @@
 			);
 			dependencies = (
 			);
-			name = ANXFloatingKeyboard;
+			name = ANXNativeKeyboardText;
 			productName = ANXFloatingKeyboard;
-			productReference = 50DCF88A235C64A50073FA3F /* libANXFloatingKeyboard.a */;
+			productReference = 50DCF88A235C64A50073FA3F /* libANXNativeKeyboardText.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -130,7 +130,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 50DCF885235C64A50073FA3F /* Build configuration list for PBXProject "FloatingKeyboard" */;
+			buildConfigurationList = 50DCF885235C64A50073FA3F /* Build configuration list for PBXProject "NativeKeyboardText" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -143,7 +143,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				50DCF889235C64A50073FA3F /* ANXFloatingKeyboard */,
+				50DCF889235C64A50073FA3F /* ANXNativeKeyboardText */,
 			);
 		};
 /* End PBXProject section */
@@ -301,7 +301,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		50DCF885235C64A50073FA3F /* Build configuration list for PBXProject "FloatingKeyboard" */ = {
+		50DCF885235C64A50073FA3F /* Build configuration list for PBXProject "NativeKeyboardText" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50DCF891235C64A50073FA3F /* Debug */,
@@ -310,7 +310,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		50DCF893235C64A50073FA3F /* Build configuration list for PBXNativeTarget "ANXFloatingKeyboard" */ = {
+		50DCF893235C64A50073FA3F /* Build configuration list for PBXNativeTarget "ANXNativeKeyboardText" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50DCF894235C64A50073FA3F /* Debug */,

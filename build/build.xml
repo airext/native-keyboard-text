@@ -6,8 +6,8 @@
     <!--=====================================================================-->
 
     <property name="project.name" value="floating-keyboard" />
-    <property name="product.name" value="FloatingKeyboard" />
-    <property name="extension.id" value="com.github.airext.FloatingKeyboard" />
+    <property name="product.name" value="NativeKeyboardText" />
+    <property name="extension.id" value="com.github.airext.NativeKeyboardText" />
 
     <property name="ios.project.dir" value="../${project.name}-ios/${product.name}" />
     <property name="air.project.dir" value="../${project.name}-air/${project.name}" />
