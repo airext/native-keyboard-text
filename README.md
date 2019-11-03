@@ -21,6 +21,7 @@ native-keyboard-text ![License MIT](http://img.shields.io/badge/license-MIT-ligh
     - [AutoCapitalization](#autocapitalization)
     - [AutoCorrection](#autocorrection)
     - [SpellChecking](#spellchecking)
+  - [Screenshots](#screenshots)
   
 ## Sections
 
@@ -149,3 +150,7 @@ Maps to [UITextSpellCheckingType](https://developer.apple.com/documentation/uiki
 * `SpellChecking.Default`
 * `SpellChecking.No`
 * `SpellChecking.Yes`
+
+### Screenshots
+
+<img src="https://user-images.githubusercontent.com/158493/68086945-aa0c7b80-fe59-11e9-92a0-e2e9b4be41e9.jpeg" width="320" />
