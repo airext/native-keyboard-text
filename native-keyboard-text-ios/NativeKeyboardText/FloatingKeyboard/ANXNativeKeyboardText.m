@@ -403,7 +403,7 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self hideKeyboard:nil];
-    [self dispatch:@"FloatingKeyboard.Keyboard.Input" withLevel:textField.text];
+    [self dispatch:@"NativeKeyboardText.Keyboard.Input" withLevel:textField.text];
     return NO;
 }
 
@@ -425,13 +425,13 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     NSLog(@"[NativeKeyboardText textFieldShouldBeginEditing]");
-    [self dispatch:@"FloatingKeyboard.Keyboard.Show" withLevel:@""];
+    [self dispatch:@"NativeKeyboardText.Keyboard.Show" withLevel:@""];
     return YES;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField reason:(UITextFieldDidEndEditingReason)reason {
     NSLog(@"[NativeKeyboardText textFieldDidEndEditing]");
-    [self dispatch:@"FloatingKeyboard.Keyboard.Hide" withLevel:[NSString stringWithFormat:@"{\"oldText\":\"%@\", \"newText\":\"%@\"}", _params.text ? _params.text : @"", textField.text]];
+    [self dispatch:@"NativeKeyboardText.Keyboard.Hide" withLevel:[NSString stringWithFormat:@"{\"oldText\":\"%@\", \"newText\":\"%@\"}", _params.text ? _params.text : @"", textField.text]];
 }
 
 @end
