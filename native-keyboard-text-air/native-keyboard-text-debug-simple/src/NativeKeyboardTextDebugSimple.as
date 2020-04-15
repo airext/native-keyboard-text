@@ -70,7 +70,11 @@ public class NativeKeyboardTextDebugSimple extends Sprite {
 
         // buttons
 
-        new PlainButton(this, {label: "Show Keyboard", y: 150, w: stage.stageWidth / contentScaleFactor, s: contentScaleFactor}, function(): void {
+        new PlainButton(this, {label: "Version", y: 150, w: stage.stageWidth / contentScaleFactor, s: contentScaleFactor}, function(): void {
+            log(NativeKeyboardText.extensionVersion);
+        });
+
+        new PlainButton(this, {label: "Show Keyboard", y: 200, w: stage.stageWidth / contentScaleFactor, s: contentScaleFactor}, function(): void {
             var params: NativeKeyboardTextParams = new NativeKeyboardTextParams();
             params.text = "test";
             params.isSecureTextEntry = false;
