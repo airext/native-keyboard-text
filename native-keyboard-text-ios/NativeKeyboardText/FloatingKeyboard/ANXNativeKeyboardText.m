@@ -309,6 +309,8 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
     inputTextField.autocapitalizationType = _params.autoCapitalizationType;
     inputTextField.autocorrectionType = _params.autoCorrectionType;
     inputTextField.spellCheckingType = _params.spellCheckingType;
+    inputTextField.inputAssistantItem.leadingBarButtonGroups = @[];
+    inputTextField.inputAssistantItem.trailingBarButtonGroups = @[];
 
     [inputTextField sizeToFit];
 
