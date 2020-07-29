@@ -5,13 +5,13 @@
       <configuration name="native-keyboard-text-debug" target-platform="Mobile" main-class="NativeKeyboardTextDebug" output-file="Main.swf" output-folder="$MODULE_DIR$/bin">
         <dependencies target-player="32.0">
           <entries>
-            <entry library-id="67ed7fad-cc17-4db1-a156-520b53c7da9d">
-              <dependency linkage="Merged" />
-            </entry>
-            <entry library-id="909da4e5-a9c4-40be-900f-87e005e2ec09">
-              <dependency linkage="Merged" />
-            </entry>
             <entry library-id="d38e845e-73cb-46ee-8fc4-156bf25bdb65">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="4.0.0-air33.0-starling2.5.1-libs" library-level="application">
+              <dependency linkage="Merged" />
+            </entry>
+            <entry library-name="4.0.0-air33.0-starling2.5.1-MetalWorksMobileTheme" library-level="application">
               <dependency linkage="Merged" />
             </entry>
           </entries>
@@ -30,7 +30,7 @@
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default@2x~iphone.png" path-in-package="Default@2x~iphone.png" />
             <FilePathAndPathInPackage file-path="$MODULE_DIR$/src/Default~iphone.png" path-in-package="Default~iphone.png" />
           </files-to-package>
-          <AirSigningOptions keystore-path="$USER_HOME$/cert/rozd/max.rozdobudko.apple.dev.p12" provisioning-profile-path="$USER_HOME$/cert/rozd/whateverdev.mobileprovision" />
+          <AirSigningOptions keystore-path="$USER_HOME$/cert/rozd/max.rozdobudko.dev.p12" provisioning-profile-path="$USER_HOME$/cert/rozd/whateverdev.mobileprovision" />
         </packaging-ios>
       </configuration>
     </configurations>
@@ -45,28 +45,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library" exported="">
       <library type="flex">
-        <properties id="67ed7fad-cc17-4db1-a156-520b53c7da9d" />
-        <CLASSES>
-          <root url="file://$USER_HOME$/sdks/feathers/4.0.0-starling2.4.1-aot-patched/frameworks/libs" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/sdks/feathers/4.0.0-starling2.4.1-aot-patched/frameworks/libs" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
-        <properties id="909da4e5-a9c4-40be-900f-87e005e2ec09" />
-        <CLASSES>
-          <root url="file://$USER_HOME$/sdks/feathers/4.0.0-starling2.4.1-aot-patched/frameworks/themes/MetalWorksMobileTheme" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-        <jarDirectory url="file://$USER_HOME$/sdks/feathers/4.0.0-starling2.4.1-aot-patched/frameworks/themes/MetalWorksMobileTheme" recursive="false" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library type="flex">
         <properties id="d38e845e-73cb-46ee-8fc4-156bf25bdb65" />
         <CLASSES>
           <root url="file://$MODULE_DIR$/ane" />
@@ -76,5 +54,7 @@
         <jarDirectory url="file://$MODULE_DIR$/ane" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" exported="" name="4.0.0-air33.0-starling2.5.1-libs" level="application" />
+    <orderEntry type="library" exported="" name="4.0.0-air33.0-starling2.5.1-MetalWorksMobileTheme" level="application" />
   </component>
 </module>

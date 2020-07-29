@@ -10,6 +10,7 @@
 #import "ANXTextField.h"
 
 #define PADDING 8.0f
+#define MARGIN 6.0f
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
@@ -245,7 +246,7 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 
 - (UIColor*)textFieldBackgroundColor {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
-        return UIColor.secondarySystemBackgroundColor;
+        return [UIColor.labelColor colorWithAlphaComponent:0.2];
     } else {
         return [UIColor colorWithRed:242.0/255.0 green:242.0/255.0 blue:247.0/255.0 alpha:1.0];
     }
@@ -253,9 +254,38 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 
 - (UIColor*)textFieldWrapperBackgroundColor {
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
-        return UIColor.systemBackgroundColor;
+        NSLog(@"[ANX] UIColor.labelColor");
+        return [UIColor.labelColor colorWithAlphaComponent:0.2];
     } else {
-        return UIColor.whiteColor;
+        UIView* view = [self findTopmostView];
+        switch (view.traitCollection.userInterfaceStyle) {
+            case UIUserInterfaceStyleDark:
+                NSLog(@"[ANX] darkTextColor");
+                return [UIColor.darkTextColor colorWithAlphaComponent:0.2];
+            default:
+                NSLog(@"[ANX] lightTextColor");
+                return [UIColor.lightTextColor colorWithAlphaComponent:0.2];
+        }
+    }
+}
+
+- (UIBlurEffect*)textFieldWrapperBlurEffect {
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
+        NSLog(@"[ANX] UIBlurEffectStyleSystemUltraThinMaterial");
+        return [UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemChromeMaterial];
+    } else {
+        UIView* view = [self findTopmostView];
+        switch (view.traitCollection.userInterfaceStyle) {
+            case UIUserInterfaceStyleDark:
+                NSLog(@"[ANX] UIBlurEffectStyleDark");
+                return [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+            case UIUserInterfaceStyleLight:
+                NSLog(@"[ANX] UIBlurEffectStyleLight");
+                return [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+            default:
+                NSLog(@"[ANX] UIBlurEffectStyleRegular");
+                return [UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular];
+        }
     }
 }
 
@@ -269,8 +299,8 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 
     UITextField* inputTextField = [[ANXTextField alloc] init];
     inputTextField.delegate = self;
-    inputTextField.borderStyle = UITextBorderStyleRoundedRect;
-    inputTextField.backgroundColor = self.textFieldBackgroundColor;
+    inputTextField.borderStyle = UITextBorderStyleNone;
+    inputTextField.backgroundColor = UIColor.clearColor;
     inputTextField.clearButtonMode = UITextFieldViewModeAlways;
     inputTextField.returnKeyType = UIReturnKeyDone;
     inputTextField.secureTextEntry = _params.isSecureTextEntry;
@@ -282,7 +312,7 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 
     [inputTextField sizeToFit];
 
-    CGFloat textFieldHeight = inputTextField.frame.size.height;
+    CGFloat textFieldHeight = inputTextField.frame.size.height + MARGIN * 2;
     CGFloat wrapperHeight   = textFieldHeight + PADDING * 2;
 
     CGRect rect = CGRectMake(0.0, CGRectGetMaxY(view.bounds) - wrapperHeight,
@@ -290,20 +320,45 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 
     UIView* wrapper = [[UIView alloc] initWithFrame:rect];
     wrapper.hidden = YES;
-    wrapper.backgroundColor = self.textFieldWrapperBackgroundColor;
+    wrapper.backgroundColor = UIColor.clearColor;
     [view addSubview:wrapper];
 
-    UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0.0, -1.0, wrapper.bounds.size.width, 0.5)];
-    line.backgroundColor = UIColor.systemGrayColor;
-    line.alpha = 0.8;
-    line.tag = 1198;
-    [wrapper addSubview:line];
+    UIBlurEffect* blurEffect = [self textFieldWrapperBlurEffect];
+    UIVisualEffectView* blurView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    blurView.frame = wrapper.bounds;
+    blurView.autoresizingMask = true;
+    blurView.autoresizingMask = UIViewAutoresizingFlexibleWidth & UIViewAutoresizingFlexibleHeight;
+    [wrapper addSubview:blurView];
 
-    UIEdgeInsets safeArea = view.safeAreaInsets;
+//    UIVibrancyEffect* vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+//    UIVisualEffectView* vibrancyView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+//    vibrancyView.autoresizingMask = UIViewAutoresizingFlexibleWidth & UIViewAutoresizingFlexibleHeight;
+
+
+
+//    UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0.0, -1.0, wrapper.bounds.size.width, 0.5)];
+//    line.backgroundColor = UIColor.systemGrayColor;
+//    line.alpha = 0.8;
+//    line.tag = 1198;
+//    [wrapper addSubview:line];
+
+    UIEdgeInsets safeArea = UIEdgeInsetsZero;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
+        safeArea = view.safeAreaInsets;
+    }
+
     CGFloat left = MAX(safeArea.left, PADDING);
     CGFloat right = MAX(safeArea.right, PADDING);
+    CGFloat textFieldWidth = wrapper.bounds.size.width - (left + right);
 
-    inputTextField.frame = CGRectMake(left, PADDING, wrapper.bounds.size.width - (left + right), textFieldHeight);
+    UIView* background = [[UIView alloc] initWithFrame:CGRectMake(left, PADDING, textFieldWidth, textFieldHeight)];
+    background.tag = 1199;
+    [background.layer setCornerRadius:8.0];
+    background.layer.masksToBounds = true;
+    background.backgroundColor = [self textFieldWrapperBackgroundColor];
+    [wrapper addSubview:background];
+
+    inputTextField.frame = CGRectMake(left + MARGIN, PADDING + MARGIN, textFieldWidth - MARGIN * 2, textFieldHeight - MARGIN * 2);
     [wrapper addSubview:inputTextField];
 
     return inputTextField;
@@ -348,21 +403,33 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 
     // line
 
-    UIView* line = [wrapper viewWithTag:1198];
-
-    CGRect lineFrame = line.frame;
-    lineFrame.size.width = wrapper.bounds.size.width;
-    line.frame = lineFrame;
+//    UIView* line = [wrapper viewWithTag:1198];
+//
+//    CGRect lineFrame = line.frame;
+//    lineFrame.size.width = wrapper.bounds.size.width;
+//    line.frame = lineFrame;
 
     // input
 
-    UIEdgeInsets safeArea = view.safeAreaInsets;
+    UIEdgeInsets safeArea = UIEdgeInsetsZero;
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"13.0")) {
+        safeArea = view.safeAreaInsets;
+    }
+
     CGFloat left = MAX(safeArea.left, PADDING);
     CGFloat right = MAX(safeArea.right, PADDING);
+    CGFloat textFieldWidth = wrapper.bounds.size.width - (left + right);
+
+    // background
+
+    UIView* background = [wrapper viewWithTag:1199];
+    background.frame = CGRectMake(left, PADDING, textFieldWidth, background.frame.size.height);
+
+    // input
 
     CGRect inputFrame = self.textField.frame;
-    inputFrame.origin.x = left;
-    inputFrame.size.width = wrapper.bounds.size.width - (left + right);
+    inputFrame.origin.x = left + MARGIN;
+    inputFrame.size.width = textFieldWidth - MARGIN * 2;
     self.textField.frame = inputFrame;
 }
 
