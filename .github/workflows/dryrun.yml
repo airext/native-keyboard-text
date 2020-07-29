@@ -48,3 +48,15 @@ jobs:
     - name: Build Script
       working-directory: build
       run: ant -debug -verbose -noinput -Dair.sdk=${{ env.air-sdk-path }} -Dkeystore.file=${{ steps.copy_keystore.outputs.filePath }} -Dkeystore.password=${{ secrets.password }} -Dvisual.studio=${{ env.visual-studio-path }} -Dis.debug=false -Dbuild.number=${{ github.run_number }} all
+    - name: Upload ANE file
+      if: always()
+      uses: actions/upload-artifact@v1
+      with:
+        name: com.github.airext.NativeKeyboardText.ane
+        path: bin/com.github.airext.NativeKeyboardText.ane
+    - name: Upload SWC file
+      if: always()
+      uses: actions/upload-artifact@v1
+      with:
+        name: com.github.airext.NativeKeyboardText.swc
+        path: bin/com.github.airext.NativeKeyboardText.swc
