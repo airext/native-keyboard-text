@@ -64,6 +64,7 @@ NativeKeyboardText.shared.showKeyboard(params);
 ```
 
 ### API
+Full documentation could be found [here](https://airext.github.io/native-keyboard-text/)
 
 #### Shared Instance
 
