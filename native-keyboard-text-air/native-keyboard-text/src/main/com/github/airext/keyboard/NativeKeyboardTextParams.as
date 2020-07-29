@@ -12,6 +12,9 @@ import flash.events.Event;
 import flash.events.EventDispatcher;
 import flash.net.registerClassAlias;
 
+/**
+ * The appearance of native keyboard could be changed with an instance of this class.
+ */
 public class NativeKeyboardTextParams extends EventDispatcher {
 
     //--------------------------------------------------------------------------
@@ -45,6 +48,9 @@ public class NativeKeyboardTextParams extends EventDispatcher {
     //-------------------------------------
 
     private var _text: String = null;
+    /**
+     * Specifies initial text to display in a text field above native keyboard
+     */
     [Bindable(event="textChanged")]
     public function get text(): String {
         return _text;
@@ -62,6 +68,9 @@ public class NativeKeyboardTextParams extends EventDispatcher {
 
     private var _isSecureTextEntry: Boolean = false;
     [Bindable(event="isSecureTextEntryChanged")]
+    /**
+     * Indicates if input should be secured.
+     */
     public function get isSecureTextEntry(): Boolean {
         return _isSecureTextEntry;
     }
@@ -78,6 +87,9 @@ public class NativeKeyboardTextParams extends EventDispatcher {
 
     private var _maxCharactersCount: int;
     [Bindable(event="maxCharactersCountChanged")]
+    /**
+     * Indicates how mach characters user able to enter.
+     */
     public function get maxCharactersCount(): int {
         return _maxCharactersCount;
     }
@@ -94,6 +106,9 @@ public class NativeKeyboardTextParams extends EventDispatcher {
 
     private var _keyboardType: NativeKeyboardType;
     [Bindable(event="keyboardTypeChanged")]
+    /**
+     * Keyboard type.
+     */
     public function get keyboardType(): NativeKeyboardType {
         return _keyboardType || NativeKeyboardType.Default;
     }
@@ -109,6 +124,9 @@ public class NativeKeyboardTextParams extends EventDispatcher {
 
     private var _returnKeyType: ReturnKeyType;
     [Bindable(event="returnKeyTypeChanged")]
+    /**
+     * Return button type.
+     */
     public function get returnKeyType(): ReturnKeyType {
         return _returnKeyType || ReturnKeyType.Done;
     }
@@ -124,6 +142,9 @@ public class NativeKeyboardTextParams extends EventDispatcher {
 
     private var _autoCapitalization: AutoCapitalization;
     [Bindable(event="autoCapitalizationChanged")]
+    /**
+     * Auto capitalization type.
+     */
     public function get autoCapitalization(): AutoCapitalization {
         return _autoCapitalization || AutoCapitalization.None;
     }
@@ -139,6 +160,9 @@ public class NativeKeyboardTextParams extends EventDispatcher {
 
     private var _autoCorrection: AutoCorrection;
     [Bindable(event="autoCorrectionChanged")]
+    /**
+     * Auto correction type.
+     */
     public function get autoCorrection(): AutoCorrection {
         return _autoCorrection || AutoCorrection.Default;
     }
@@ -154,6 +178,9 @@ public class NativeKeyboardTextParams extends EventDispatcher {
 
     private var _spellChecking: SpellChecking;
     [Bindable(event="spellCheckingChanged")]
+    /**
+     * Spell checking type.
+     */
     public function get spellChecking(): SpellChecking {
         return _spellChecking || SpellChecking.Default;
     }

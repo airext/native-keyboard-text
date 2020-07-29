@@ -4,6 +4,9 @@
 package com.github.airext.keyboard.event {
 import flash.events.Event;
 
+/**
+ * Dispatches when native keyboard is opened.
+ */
 public class NativeKeyboardTextShowEvent extends Event {
 
     public static const SHOW: String = "nativeKeyboardTextShow";

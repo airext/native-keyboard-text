@@ -17,8 +17,17 @@ import flash.filesystem.FileStream;
 
 use namespace keyboard;
 
+/**
+ * Dispatches when native keyboard is opened
+ */
 [Event(name="nativeKeyboardTextShow", type="com.github.airext.keyboard.event.NativeKeyboardTextShowEvent")]
+/**
+ * Dispatches after native keyboard hides.
+ */
 [Event(name="nativeKeyboardTextHide", type="com.github.airext.keyboard.event.NativeKeyboardTextHideEvent")]
+/**
+ * Dispatches when user taps on a return button.
+ */
 [Event(name="nativeKeyboardTextInput", type="com.github.airext.keyboard.event.NativeKeyboardTextInputEvent")]
 
 public class NativeKeyboardText extends EventDispatcher {
@@ -69,6 +78,9 @@ public class NativeKeyboardText extends EventDispatcher {
 
     private static var instance: NativeKeyboardText;
 
+    /**
+     * Quick access to <code>NativeKeyboardText</code> shared instance.
+     */
     public static function get shared(): NativeKeyboardText {
         if (instance == null) {
             new NativeKeyboardText();
@@ -129,6 +141,9 @@ public class NativeKeyboardText extends EventDispatcher {
     //
     //--------------------------------------------------------------------------
 
+    /**
+     * Constructor
+     */
     public function NativeKeyboardText() {
         super();
         instance = this;
@@ -141,10 +156,18 @@ public class NativeKeyboardText extends EventDispatcher {
     //
     //--------------------------------------------------------------------------
 
+    /**
+     * Shows native keyboard parametrized with <code>params</code>
+     * @param params An instance of <code>NativeKeyboardTextParams</code> for
+     * keyboard parametrization.
+     */
     public function showKeyboard(params: NativeKeyboardTextParams): void {
         context.call("showKeyboard", params);
     }
 
+    /**
+     * Hides native keyboard if it has been presented using the ANE.
+     */
     public function hideKeyboard(): void {
         context.call("hideKeyboard");
     }
