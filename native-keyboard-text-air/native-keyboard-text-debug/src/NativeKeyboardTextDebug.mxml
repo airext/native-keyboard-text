@@ -80,6 +80,7 @@
         <f:Button label="Extensions Version" triggered="extensionVersionTapped()" />
         <f:TextInput prompt="Initial Text" text="{params.text}" change="params.text = TextInput(event.target).text" />
         <f:TextInput prompt="Max Characters Count" text="{params.maxCharactersCount}" restrict="0-9" change="params.maxCharactersCount = parseInt(TextInput(event.target).text)" />
+        <f:TextInput prompt="Character Filter" text="{params.characterFilter}" change="params.characterFilter = TextInput(event.target).text" />
         <f:Check label="Secure Text Input" isSelected="{params.isSecureTextEntry}" change="params.isSecureTextEntry = Check(event.target).isSelected;" />
         <f:Check label="Automatically Hide Keyboard after 10 seconds" isSelected="{shouldAutoHideKeyboard}" change="shouldAutoHideKeyboard = Check(event.target).isSelected" />
         <f:Button label="Open Keyboard" triggered="openKeyboard()" />

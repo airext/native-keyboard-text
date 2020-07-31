@@ -22,6 +22,13 @@
         self.autoCorrectionType = [ANXNativeKeyboardTextConversionRoutines readNSIntegerFrom:object field:@"autoCorrection" withRawValueField:@"rawValue" withDefaultValue:UITextAutocorrectionTypeDefault];
         self.autoCapitalizationType = [ANXNativeKeyboardTextConversionRoutines readNSIntegerFrom:object field:@"autoCapitalization" withRawValueField:@"rawValue" withDefaultValue:UITextAutocapitalizationTypeNone];
         self.spellCheckingType = [ANXNativeKeyboardTextConversionRoutines readNSIntegerFrom:object field:@"spellChecking" withRawValueField:@"rawValue" withDefaultValue:UITextSpellCheckingTypeDefault];
+
+        NSString* characterFilterPattern = [ANXNativeKeyboardTextConversionRoutines readNSStringFrom:object field:@"characterFilter" withDefaultValue:nil];
+        if (characterFilterPattern && ![characterFilterPattern isEqualToString:@""]) {
+            self.characterFilter = [NSRegularExpression regularExpressionWithPattern:characterFilterPattern
+                                                                             options:0
+                                                                               error:nil];
+        }
     }
     return self;
 }

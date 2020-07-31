@@ -190,6 +190,28 @@ public class NativeKeyboardTextParams extends EventDispatcher {
         dispatchEvent(new Event("spellCheckingChanged"));
     }
 
+    //-------------------------------------
+    //  characterFilter
+    //-------------------------------------
+
+    private var _characterFilter: String;
+    [Bindable(event="characterFilterChanged")]
+    /**
+     * Indicates a set of characters that could be entered to text field.
+     * If value is <code>null</code> or an empty string, you can enter any character.
+     * Accepts string of characters or a regular expression.
+     *
+     * The default value is <code>null</code>.
+     */
+    public function get characterFilter(): String {
+        return _characterFilter;
+    }
+    public function set characterFilter(value: String): void {
+        if (value == _characterFilter) return;
+        _characterFilter = value;
+        dispatchEvent(new Event("characterFilterChanged"));
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Description
