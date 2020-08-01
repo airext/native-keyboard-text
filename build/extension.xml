@@ -1,6 +1,6 @@
 <extension xmlns="http://ns.adobe.com/air/extension/32.0">
   <id>com.github.airext.NativeKeyboardText</id>
-  <versionNumber>0.25.0</versionNumber>
+  <versionNumber>0.26.0</versionNumber>
   <platforms>
     <platform name="iPhone-ARM">
       <applicationDeployment>

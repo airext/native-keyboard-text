@@ -479,7 +479,7 @@ static ANXNativeKeyboardText* _sharedInstance = nil;
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if (_params.characterFilter) {
         for (NSUInteger i = 0; i < [string length]; i++) {
-            if (![_params.characterFilter firstMatchInString:string options:0 range:NSMakeRange(i, 1)]) {
+            if (![_params.characterFilter characterIsMember:[string characterAtIndex:i]]) {
                 return NO;
             }
         }

@@ -198,8 +198,7 @@ public class NativeKeyboardTextParams extends EventDispatcher {
     [Bindable(event="characterFilterChanged")]
     /**
      * Indicates a set of characters that could be entered to text field.
-     * If value is <code>null</code> or an empty string, you can enter any character.
-     * Accepts string of characters or a regular expression.
+     * If value is <code>null</code> or an empty string, any character could be typed.
      *
      * The default value is <code>null</code>.
      */

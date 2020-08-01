@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) UITextAutocorrectionType autoCorrectionType;
 
-@property (nonatomic, nullable) NSRegularExpression* characterFilter;
+@property (nonatomic, nullable) NSCharacterSet* characterFilter;
 
 @end
 

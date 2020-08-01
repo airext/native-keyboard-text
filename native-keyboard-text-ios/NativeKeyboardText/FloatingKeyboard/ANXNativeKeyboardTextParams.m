@@ -25,9 +25,7 @@
 
         NSString* characterFilterPattern = [ANXNativeKeyboardTextConversionRoutines readNSStringFrom:object field:@"characterFilter" withDefaultValue:nil];
         if (characterFilterPattern && ![characterFilterPattern isEqualToString:@""]) {
-            self.characterFilter = [NSRegularExpression regularExpressionWithPattern:characterFilterPattern
-                                                                             options:0
-                                                                               error:nil];
+            self.characterFilter = [NSCharacterSet characterSetWithCharactersInString:characterFilterPattern];
         }
     }
     return self;
