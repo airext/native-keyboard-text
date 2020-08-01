@@ -163,6 +163,21 @@ public class NativeKeyboardTextParams extends EventDispatcher {
         dispatchEvent(new Event("spellCheckingChanged"));
     }
 
+    //-------------------------------------
+    //  characterFilter
+    //-------------------------------------
+
+    private var _characterFilter: String;
+    [Bindable(event="characterFilterChanged")]
+    public function get characterFilter(): String {
+        return _characterFilter;
+    }
+    public function set characterFilter(value: String): void {
+        if (value == _characterFilter) return;
+        _characterFilter = value;
+        dispatchEvent(new Event("characterFilterChanged"));
+    }
+
     //--------------------------------------------------------------------------
     //
     //  Description
